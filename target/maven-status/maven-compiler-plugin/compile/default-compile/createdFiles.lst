@@ -1,0 +1,6 @@
+nl\hsleiden\app\DropwizardApplication$1.class
+nl\hsleiden\app\dao\DAO.class
+nl\hsleiden\app\DropwizardApplication.class
+nl\hsleiden\app\check\DatabaseHealthCheck.class
+nl\hsleiden\app\DropwizardConfiguration.class
+nl\hsleiden\app\resource\HtmlPageResource.class
