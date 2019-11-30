@@ -1,19 +1,8 @@
-IPSEN2 Java Backend Project
+IPRWC 2: A hsleiden project
 =============================
 
-### Case 
-This project was a required assignment for my second year Software Engineering Bachelors degree.
-
-The case was to make a CRUD backend for uploading student projects. It was required to use Dropwizard, a Java backend framework.
-
-For project reasons we used the waterfall method for developing this software, to understand why it's not used anymore in software development anymore.
-
-A java backend for this case is total overkill in my opinion, there are far more better solutions to solve this case.  
-#
-
-
 ### Pre-requisites 
-If u would like to run the project follow the steps below.
+If you would like to run the project follow the steps below.
 
 MYSQL database: Update the main.yml if your configuration differs. In this example, we use
 
