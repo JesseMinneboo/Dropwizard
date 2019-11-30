@@ -1,5 +1,11 @@
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\DropwizardConfiguration.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resource\HtmlPageResource.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\dao\DAO.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\check\DatabaseHealthCheck.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\interfaces\enums\UploadType.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\HtmlPageResource.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\DAO.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\models\User.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\interfaces\abstracts\UploadPath.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\services\UserService.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\user\UserMapper.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\checks\DatabaseHealthCheck.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\DropwizardApplication.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\UserResource.java

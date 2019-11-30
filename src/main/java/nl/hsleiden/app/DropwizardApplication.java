@@ -9,6 +9,8 @@ import io.dropwizard.setup.Environment;
 import nl.hsleiden.app.checks.DatabaseHealthCheck;
 import nl.hsleiden.app.daos.DAO;
 import nl.hsleiden.app.resources.HtmlPageResource;
+import nl.hsleiden.app.resources.UserResource;
+import nl.hsleiden.app.services.UserService;
 import org.skife.jdbi.v2.DBI;
 
 import java.util.HashMap;
@@ -24,6 +26,11 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
         final DAO dao = jdbi.onDemand(DAO.class);
+
+
+        // users
+        environment.jersey().register(new UserResource(
+                new UserService(dao)));
 
         // index.html
         environment.jersey().register(

@@ -1,6 +1,12 @@
 nl\hsleiden\app\DropwizardApplication$1.class
-nl\hsleiden\app\dao\DAO.class
-nl\hsleiden\app\DropwizardApplication.class
-nl\hsleiden\app\check\DatabaseHealthCheck.class
+nl\hsleiden\app\models\User.class
+nl\hsleiden\app\resources\UserResource.class
+nl\hsleiden\app\services\UserService.class
 nl\hsleiden\app\DropwizardConfiguration.class
-nl\hsleiden\app\resource\HtmlPageResource.class
+nl\hsleiden\app\daos\DAO.class
+nl\hsleiden\app\interfaces\enums\UploadType.class
+nl\hsleiden\app\interfaces\abstracts\UploadPath.class
+nl\hsleiden\app\daos\user\UserMapper.class
+nl\hsleiden\app\DropwizardApplication.class
+nl\hsleiden\app\checks\DatabaseHealthCheck.class
+nl\hsleiden\app\resources\HtmlPageResource.class
