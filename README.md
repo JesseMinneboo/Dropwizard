@@ -97,6 +97,7 @@ npm install
 
 
 ### Build
+* Compiling
 ```sh
 mvn clean package
 ```
