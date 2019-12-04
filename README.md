@@ -36,13 +36,8 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
-  * [Built With](#built-with)
 * [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
 * [Roadmap](#roadmap)
-* [Contributing](#contributing)
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
@@ -52,14 +47,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need.
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue.
+For a subject at my Universiy we were asked to build a webshop. Here can buy products (obviously), login, register, logout and have some kind of shopping cart.
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
@@ -69,6 +57,8 @@ This RESTful API is build with the following:
 * [Java](https://www.java.com/nl/download/)
 * [Intellij IDEA](https://www.jetbrains.com/idea/)
 * [Maven](https://maven.apache.org/)
+
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -87,7 +77,7 @@ npm install npm@latest -g
 ```sh
 https://www.getpostman.com/
 ```
-* download xampp or use your own MySql server
+* download Xampp or use your own MySql server
 ```sh
 https://www.apachefriends.org/index.html
 ```
@@ -97,6 +87,7 @@ database: database_name
 user: database_user
 pass: database_password
 ```
+
 
 ### Installation
 
@@ -109,25 +100,30 @@ git clone https://github.com/JesseMinneboo/Dropwizard.git
 npm install
 ```
 
+
 ### Build
 ```sh
 mvn clean package
 ```
+
 
 ### Creating the database
 ```sh
 java -jar target/PROJECTNAME.jar db migrate main.yml
 ```
 
+
 ### Run
 ```sh
 java -jar target/PROJECTNAME.jar server main.yml
 ```
 
+
 ### Open API in browser
 ```sh
 http://localhost:9000
 ```
+
 
 <!-- ROADMAP -->
 ## Roadmap
@@ -153,7 +149,6 @@ Project Link: [https://github.com/JesseMinneboo/Dropwizard](https://github.com/J
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Img Shields](https://shields.io)
-* [Choose an Open Source License](https://choosealicense.com)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
