@@ -102,19 +102,19 @@ mvn clean package
 ```
 
 
-### Creating the database
+* Creating the database
 ```sh
 java -jar target/PROJECTNAME.jar db migrate main.yml
 ```
 
 
-### Run
+* Run
 ```sh
 java -jar target/PROJECTNAME.jar server main.yml
 ```
 
 
-### Open API in browser
+* Open API in browser
 ```sh
 http://localhost:9000
 ```
