@@ -152,16 +152,5 @@ Project Link: [https://github.com/JesseMinneboo/Dropwizard](https://github.com/J
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/JesseMinneboo/Dropwizard.svg?style=flat-square
-[contributors-url]: https://github.com/JesseMinneboo/Dropwizard/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/JesseMinneboo/Dropwizard.svg?style=flat-square
-[forks-url]: https://github.com/JesseMinneboo/Dropwizard/network/members
-[stars-shield]: https://img.shields.io/github/stars/JesseMinneboo/Dropwizard.svg?style=flat-square
-[stars-url]: https://github.com/JesseMinneboo/Dropwizard/stargazers
-[issues-shield]: https://img.shields.io/github/issues/JesseMinneboo/Dropwizard.svg?style=flat-square
-[issues-url]: https://github.com/JesseMinneboo/Dropwizard/issues
-[license-shield]: https://img.shields.io/github/license/JesseMinneboo/Dropwizard.svg?style=flat-square
-[license-url]: https://github.com/JesseMinneboo/Dropwizard/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/JesseMinneboo
-[product-screenshot]: images/screenshot.png
