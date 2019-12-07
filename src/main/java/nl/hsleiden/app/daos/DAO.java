@@ -32,15 +32,17 @@ public interface DAO {
 
     /**
      * @author Jesse Minneboo
-     * @param displayname display name
+     * @param firstname firstname
+     * @param surname surname
      * @param username username
      * @param password password
      * @return user object
      */
-    @SqlUpdate("insert into user (displayname, username, password) values (:displayname, :username, MD5(:password))")
+    @SqlUpdate("insert into user (firstname, surname, username, password) values (:firstname, :surname, :username, MD5(:password))")
     @GetGeneratedKeys
     long insertUserIntoDatabase(
-            @Bind("displayname") String displayname,
+            @Bind("firstname") String firstname,
+            @Bind("surname") String surname,
             @Bind("username") String username,
             @Bind("password") String password
     );

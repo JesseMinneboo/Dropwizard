@@ -38,7 +38,8 @@ public class UserResource {
 
     /**
      * @author Jesse Minneboo
-     * @param displayname display name
+     * @param firstname firstname
+     * @param surname lastname
      * @param username username
      * @param password password
      * @return user service
@@ -48,12 +49,14 @@ public class UserResource {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public User registerUser(
-            @NotNull @FormParam("displayname") String displayname,
+            @NotNull @FormParam("firstname") String firstname,
+            @NotNull @FormParam("surname") String surname,
             @NotNull @FormParam("username") String username,
             @NotNull @FormParam("password") String password
     ) {
         return UserService.registerUser(
-                displayname,
+                firstname,
+                surname,
                 username,
                 password
         );

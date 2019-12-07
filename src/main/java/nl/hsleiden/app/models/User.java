@@ -7,7 +7,10 @@ public class User {
     private long id;
 
     @JsonProperty
-    private String displayname;
+    private String firstname;
+
+    @JsonProperty
+    private String surname;
 
     @JsonProperty
     private String username;
@@ -15,13 +18,29 @@ public class User {
     @JsonProperty
     private String password;
 
-    public User(){}
 
-    public User(long id, String displayname, String username, String password){
+    public User(long id, String firstname, String surname, String username, String password){
         this.setId(id);
-        this.setDisplayname(displayname);
+        this.setFirstname(firstname);
+        this.setSurname(surname);
         this.setUsername(username);
         this.setPassword(password);
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     public long getId() {
@@ -30,14 +49,6 @@ public class User {
 
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getDisplayname() {
-        return displayname;
-    }
-
-    public void setDisplayname(String displayname) {
-        this.displayname = displayname;
     }
 
     public String getUsername() {

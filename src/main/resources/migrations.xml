@@ -11,30 +11,62 @@
         <!-- adding tables to the database -->
         <createTable tableName="user">
             <column name="user_id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="displayname" type="varchar(255)"/>
+                <constraints primaryKey="true" nullable="false"/></column>
+            <column name="firstname" type="varchar(255)"/>
+            <column name="surname" type="varchar(255)"/>
             <column name="username" type="varchar(255)"/>
             <column name="password" type="varchar(255)"/>
         </createTable>
 
-        <createTable tableName="shopping_list">
-            <column name="user_id" type="bigint"/>
-            <column name="product_name" type="varchar(255)"/>
-            <column name="price" type="numeric(5,2)"/>
+        <createTable tableName="product">
+            <column name="product_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/></column>
+            <column name="product_name" type="varchar(50)"/>
+            <column name="product_description" type="varchar(255)"/>
+            <column name="product_price" type="numeric(5,2)"/>
+            <column name="product_image_path" type="varchar(255)"/>
         </createTable>
+
+        <createTable tableName="order">
+            <column name="order_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/></column>
+            <column name="order_user_id" type="bigint"/> <!--FOREIGN KEY-->
+            <column name="order_date" type="date"/>
+            <column name="order_price" type="numeric(5,2)"/>
+        </createTable>
+
+        <createTable tableName="cart">
+            <column name="cart_user_id" type="bigint"/> <!--FOREIGN KEY-->
+            <column name="cart_product_id" type="bigint"/> <!--FOREIGN KEY-->
+        </createTable>
+
 
         <!-- adding foreign key constraints-->
         <addForeignKeyConstraint
-        baseColumnNames="user_id"
-        baseTableName="shopping_list"
-        constraintName="shopping_list_from_user_id"
-        referencedColumnNames="user_id"
-        referencedTableName="user"/>
+                baseColumnNames="cart_user_id"
+                baseTableName="cart"
+                constraintName="fk_cart_user_id"
+                referencedColumnNames="user_id"
+                referencedTableName="user"/>
+
+        <addForeignKeyConstraint
+                baseColumnNames="order_user_id"
+                baseTableName="order"
+                constraintName="fk_order_user_id"
+                referencedColumnNames="user_id"
+                referencedTableName="user"/>
+
+        <addForeignKeyConstraint
+                baseColumnNames="cart_product_id"
+                baseTableName="cart"
+                constraintName="fk_cart_product_id"
+                referencedColumnNames="product_id"
+                referencedTableName="product"/>
 
         <!-- seeding tables -->
         <insert tableName="user">
-            <column name="displayname">minnebro</column>
+            <column name="firstname">Jesse</column>
+            <column name="surname">Minneboo</column>
             <column name="username">minnebro</column>
             <column name="password">7bdb867406014343d036c33421671556</column>
         </insert>
