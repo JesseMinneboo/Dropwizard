@@ -56,4 +56,8 @@ public interface DAO {
     @SqlQuery("select * from user where user_id = :userId")
     @Mapper(UserMapper.class)
     User findUserById(@Bind("userId") long userId);
+
+    @SqlQuery("select * from user where username = :username and password = MD5(:password)")
+    @Mapper(UserMapper.class)
+    User loginUser(@Bind("username") String username, @Bind("password") String password);
 }

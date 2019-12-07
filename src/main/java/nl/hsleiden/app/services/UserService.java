@@ -45,4 +45,15 @@ public class UserService {
         User newUser = userDao.findUserById(userId);
         return newUser;
     }
+
+    /**
+     * @author Jesse Minneboo
+     * @param username username
+     * @param password password
+     * @return user DAO
+     */
+    public User loginUser(String username, String password) {
+        User authenticatedUser = userDao.loginUser(username, password);
+        return authenticatedUser;
+    }
 }

@@ -62,5 +62,26 @@ public class UserResource {
         );
     }
 
+    /**
+     * @author Jesse Minneboo
+     * @param username username
+     * @param password password
+     * @return user service
+     */
+    @POST
+    @Path("/login")
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public User postLoginAction(
+            @FormParam("username") String username,
+            @FormParam("password") String password
+    ) {
+        return UserService.loginUser(
+                username,
+                password
+        );
+    }
+
+
 
 }

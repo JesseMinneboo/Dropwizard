@@ -11,8 +11,12 @@ import nl.hsleiden.app.daos.DAO;
 import nl.hsleiden.app.resources.HtmlPageResource;
 import nl.hsleiden.app.resources.UserResource;
 import nl.hsleiden.app.services.UserService;
+import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.skife.jdbi.v2.DBI;
 
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+import java.util.EnumSet;
 import java.util.HashMap;
 
 public class DropwizardApplication extends Application<DropwizardConfiguration> {
@@ -27,8 +31,19 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
         final DAO dao = jdbi.onDemand(DAO.class);
 
+        // Enable CORS headers
+        final FilterRegistration.Dynamic cors =
+                environment.servlets().addFilter("CORS", CrossOriginFilter.class);
 
-        // users
+        // Configure CORS parameters
+        cors.setInitParameter("allowedOrigins", "*");
+        cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin,Authorization");
+        cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
+
+        // Add URL mapping
+        cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
+
+        // user path
         environment.jersey().register(new UserResource(
                 new UserService(dao)));
 
