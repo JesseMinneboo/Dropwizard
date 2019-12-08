@@ -7,14 +7,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserMapper implements ResultSetMapper<User> {
+
     @Override
-    public User map(int i, ResultSet r, StatementContext statementContext) throws SQLException {
+    public User map(int i, ResultSet resultSet, StatementContext statementContext) throws SQLException {
         return new User(
-                r.getLong("user_id"),
-                r.getString("firstname"),
-                r.getString("surname"),
-                r.getString("username"),
-                r.getString("password")
+                resultSet.getLong("user_id"),
+                resultSet.getString("user_name"),
+                resultSet.getString("user_surname"),
+                resultSet.getString("user_username"),
+                resultSet.getString("user_password")
         );
     }
 }

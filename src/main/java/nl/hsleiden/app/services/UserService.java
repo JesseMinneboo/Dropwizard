@@ -40,7 +40,12 @@ public class UserService {
      * @param password password
      * @return user DAO
      */
-    public User registerUser(String firstname, String surname, String username, String password) {
+    public User registerUser(
+            String firstname,
+            String surname,
+            String username,
+            String password
+    ) {
         long userId = userDao.insertUserIntoDatabase(firstname, surname, username, password);
         User newUser = userDao.findUserById(userId);
         return newUser;

@@ -9,7 +9,9 @@ import io.dropwizard.setup.Environment;
 import nl.hsleiden.app.checks.DatabaseHealthCheck;
 import nl.hsleiden.app.daos.DAO;
 import nl.hsleiden.app.resources.HtmlPageResource;
+import nl.hsleiden.app.resources.ProductResource;
 import nl.hsleiden.app.resources.UserResource;
+import nl.hsleiden.app.services.ProductService;
 import nl.hsleiden.app.services.UserService;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.skife.jdbi.v2.DBI;
@@ -46,6 +48,10 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         // user path
         environment.jersey().register(new UserResource(
                 new UserService(dao)));
+
+        // product path
+        environment.jersey().register(new ProductResource(
+                new ProductService(dao)));
 
         // index.html
         environment.jersey().register(
