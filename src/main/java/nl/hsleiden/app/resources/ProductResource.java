@@ -22,10 +22,27 @@ public class ProductResource {
      * @return product service
      */
     @GET
-    @Path("/highlights")
+    @Path("/latest")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<Product> getHighlights() {
-        return productService.getHighlights();
+    public List<Product> getLatestProducts() {
+        return productService.getLatestProducts();
+    }
+
+
+    /**
+     * @author Jesse Minneboo
+     * @return product service
+     */
+    @GET
+    @Path("/all")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Product> getAllProducts(
+            @QueryParam("limit") int limit
+    ) {
+        if(limit < 1)
+            return productService.getAllProducts();
+        else
+            return productService.getAllProducts(limit);
     }
 
 

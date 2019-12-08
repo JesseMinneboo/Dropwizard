@@ -76,11 +76,11 @@ public interface DAO {
 
     /**
      * @author Jesse Minneboo
-     * @return six product objects
+     * @return product array containing six products
      */
     @SqlQuery("SELECT * FROM product ORDER BY product_id DESC LIMIT 6")
     @Mapper(ProductMapper.class)
-    List<Product> getHighlights();
+    List<Product> getLatersProductsFromDatabase();
 
 
     /**
@@ -108,5 +108,24 @@ public interface DAO {
      */
     @SqlQuery("SELECT * FROM product WHERE product_id = :productId")
     @Mapper(ProductMapper.class)
-    Product findProductById(@Bind("productId") long productId);
+    Product findProductByIdInDatabase(@Bind("productId") long productId);
+
+
+    /**
+     * @author Jesse Minneboo
+     * @param limit limit
+     * @return product array
+     */
+    @SqlQuery("SELECT * FROM product LIMIT :limit")
+    @Mapper(ProductMapper.class)
+    List<Product> getAllProductsFromDatabase(@Bind("limit") int limit);
+
+
+    /**
+     * @author Jesse Minneboo
+     * @return product array
+     */
+    @SqlQuery("SELECT * FROM product")
+    @Mapper(ProductMapper.class)
+    List<Product> getAllProductsFromDatabase();
 }

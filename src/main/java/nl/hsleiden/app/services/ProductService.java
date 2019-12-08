@@ -17,8 +17,8 @@ public class ProductService {
      * @author Jesse Minneboo
      * @return product DAO
      */
-    public List<Product> getHighlights() {
-        return productDao.getHighlights();
+    public List<Product> getLatestProducts() {
+        return productDao.getLatersProductsFromDatabase();
     }
 
 
@@ -28,7 +28,7 @@ public class ProductService {
      * @param productDescription product description
      * @param productPrice product price
      * @param productImagePath product image path to image
-     * @return user DAO
+     * @return product DAO
      */
     public Product addNewProduct(
             String productName,
@@ -37,7 +37,25 @@ public class ProductService {
             String productImagePath
     ) {
         long productId = productDao.insertProductIntoDatabase(productName, productDescription, productPrice, productImagePath);
-        Product newProduct = productDao.findProductById(productId);
+        Product newProduct = productDao.findProductByIdInDatabase(productId);
         return newProduct;
+    }
+
+
+    /**
+     * @author Jesse Minneboo
+     * @return product dao
+     */
+    public List<Product> getAllProducts() {
+        return productDao.getAllProductsFromDatabase();
+    }
+
+
+    /**
+     * @author Jesse Minneboo
+     * @return product DAO
+     */
+    public List<Product> getAllProducts(int limit) {
+        return productDao.getAllProductsFromDatabase(limit);
     }
 }
