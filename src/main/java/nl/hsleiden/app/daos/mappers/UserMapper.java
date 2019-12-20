@@ -1,6 +1,6 @@
-package nl.hsleiden.app.daos.user;
+package nl.hsleiden.app.daos.mappers;
 
-import nl.hsleiden.app.models.User;
+import nl.hsleiden.app.daos.models.User;
 import org.skife.jdbi.v2.StatementContext;
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
 import java.sql.ResultSet;

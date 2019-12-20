@@ -1,45 +1,25 @@
 package nl.hsleiden.app.services;
 
-import nl.hsleiden.app.daos.DAO;
-import nl.hsleiden.app.models.User;
+import nl.hsleiden.app.daos.UserDao;
+import nl.hsleiden.app.daos.models.User;
 
 import java.util.List;
 
 public class UserService {
-    private static DAO userDao;
+    private static UserDao userDao;
 
-    public UserService(DAO userDao){
+    public UserService(UserDao userDao) {
         UserService.userDao = userDao;
     }
 
-
-    /**
-     * @author Jesse Minneboo
-     * @return user DAO
-     */
     public static List<User> getAllUsers() {
         return userDao.getAllUsersFromDatabase();
     }
 
-
-    /**
-     * @author Jesse Minneboo
-     * @param limit limit
-     * @return user DAO
-     */
     public static List<User> getAllUsers(int limit) {
         return userDao.getAllUsersFromDatabase(limit);
     }
 
-
-    /**
-     * @author Jesse Minneboo
-     * @param firstname firstname
-     * @param surname surname
-     * @param username username
-     * @param password password
-     * @return user DAO
-     */
     public User registerUser(
             String firstname,
             String surname,
@@ -51,12 +31,6 @@ public class UserService {
         return newUser;
     }
 
-    /**
-     * @author Jesse Minneboo
-     * @param username username
-     * @param password password
-     * @return user DAO
-     */
     public User loginUser(String username, String password) {
         User authenticatedUser = userDao.loginUser(username, password);
         return authenticatedUser;

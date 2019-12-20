@@ -18,26 +18,30 @@
             <column name="user_password" type="varchar(255)"/>
         </createTable>
 
-        <createTable tableName="product">
-            <column name="product_id" type="bigint" autoIncrement="true">
+        <createTable tableName="game">
+            <column name="game_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/></column>
-            <column name="product_name" type="varchar(50)"/>
-            <column name="product_description" type="varchar(255)"/>
-            <column name="product_price" type="numeric(5,2)"/>
-            <column name="product_image_path" type="varchar(255)"/>
+            <column name="game_name" type="varchar(50)"/>
+            <column name="game_description" type="varchar(255)"/>
+            <column name="game_price" type="numeric(5,2)"/>
+            <column name="game_image_path" type="varchar(255)"/>
         </createTable>
 
         <createTable tableName="order">
             <column name="order_id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/></column>
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
             <column name="order_user_id" type="bigint"/> <!--FOREIGN KEY-->
             <column name="order_date" type="date"/>
             <column name="order_price" type="numeric(5,2)"/>
         </createTable>
 
         <createTable tableName="cart">
+            <column name="cart_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
             <column name="cart_user_id" type="bigint"/> <!--FOREIGN KEY-->
-            <column name="cart_product_id" type="bigint"/> <!--FOREIGN KEY-->
+            <column name="cart_game_id" type="bigint"/> <!--FOREIGN KEY-->
         </createTable>
 
 
@@ -57,11 +61,11 @@
                 referencedTableName="user"/>
 
         <addForeignKeyConstraint
-                baseColumnNames="cart_product_id"
+                baseColumnNames="cart_game_id"
                 baseTableName="cart"
-                constraintName="fk_cart_product_id"
-                referencedColumnNames="product_id"
-                referencedTableName="product"/>
+                constraintName="fk_cart_game_id"
+                referencedColumnNames="game_id"
+                referencedTableName="game"/>
 
         <!-- seeding tables -->
         <insert tableName="user">
@@ -69,6 +73,18 @@
             <column name="user_surname">Minneboo</column>
             <column name="user_username">minnebro</column>
             <column name="user_password">7bdb867406014343d036c33421671556</column>
+        </insert>
+
+        <insert tableName="game">
+            <column name="game_name">Terraria</column>
+            <column name="game_description">Dit is een epische game</column>
+            <column name="game_price">20.99</column>
+            <column name="game_image_path">testtesttest</column>
+        </insert>
+
+        <insert tableName="cart">
+            <column name="cart_user_id">1</column>
+            <column name="cart_game_id">1</column>
         </insert>
 
 

@@ -1,8 +1,8 @@
-package nl.hsleiden.app.models;
+package nl.hsleiden.app.daos.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Product {
+public class Game {
     @JsonProperty
     private long id;
 
@@ -18,7 +18,7 @@ public class Product {
     @JsonProperty
     private String imagePath;
 
-    public Product(long id, String name, String description, double price, String imagePath) {
+    public Game(long id, String name, String description, double price, String imagePath) {
         this.setId(id);
         this.setName(name);
         this.setDescription(description);

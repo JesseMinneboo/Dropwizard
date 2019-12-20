@@ -7,11 +7,15 @@ import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import nl.hsleiden.app.checks.DatabaseHealthCheck;
-import nl.hsleiden.app.daos.DAO;
+import nl.hsleiden.app.daos.CartDao;
+import nl.hsleiden.app.daos.GameDao;
+import nl.hsleiden.app.daos.UserDao;
+import nl.hsleiden.app.resources.CartResource;
 import nl.hsleiden.app.resources.HtmlPageResource;
-import nl.hsleiden.app.resources.ProductResource;
+import nl.hsleiden.app.resources.GameResource;
 import nl.hsleiden.app.resources.UserResource;
-import nl.hsleiden.app.services.ProductService;
+import nl.hsleiden.app.services.CartService;
+import nl.hsleiden.app.services.GameService;
 import nl.hsleiden.app.services.UserService;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.skife.jdbi.v2.DBI;
@@ -31,7 +35,9 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
     public void run(DropwizardConfiguration configuration, Environment environment) throws Exception {
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
-        final DAO dao = jdbi.onDemand(DAO.class);
+        final UserDao userDao = jdbi.onDemand(UserDao.class);
+        final GameDao gameDao = jdbi.onDemand(GameDao.class);
+        final CartDao cartDao = jdbi.onDemand(CartDao.class);
 
         // Enable CORS headers
         final FilterRegistration.Dynamic cors =
@@ -47,11 +53,15 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
 
         // user path
         environment.jersey().register(new UserResource(
-                new UserService(dao)));
+                new UserService(userDao)));
 
-        // product path
-        environment.jersey().register(new ProductResource(
-                new ProductService(dao)));
+        // game path
+        environment.jersey().register(new GameResource(
+                new GameService(gameDao)));
+
+        // shopping cart path
+        environment.jersey().register(new CartResource(
+                new CartService(cartDao)));
 
         // index.html
         environment.jersey().register(
@@ -76,7 +86,6 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
     public static HashMap<String, String> getVersion() {
         HashMap<String, String> version = new HashMap<>();
         version.put("version", API_VERSION);
-
         return version;
     }
 }

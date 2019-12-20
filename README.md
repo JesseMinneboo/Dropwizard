@@ -19,6 +19,10 @@ MYSQL database: Update the main.yml if your configuration differs. In this examp
 
 	java -jar target/dropwizard-1.0.0.jar db migrate main.yml
 	
+### Database deletion:
+
+	java -jar target/dropwizard-1.0.0.jar db drop-all --confirm-delete-everything main.yml
+	
 	
 ### Run:
     

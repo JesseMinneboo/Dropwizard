@@ -1,6 +1,6 @@
 package nl.hsleiden.app.resources;
 
-import nl.hsleiden.app.models.User;
+import nl.hsleiden.app.daos.models.User;
 import nl.hsleiden.app.services.UserService;
 
 import javax.validation.constraints.NotNull;
@@ -16,13 +16,7 @@ public class UserResource {
         this.userService = userService;
     }
 
-
-    /**
-     * @author Jesse Minneboo
-     * @param limit limit
-     * @return user service
-     */
-    @GET
+    @GET // TESTING PURPOSES
     @Path("/all")
     @Produces({MediaType.APPLICATION_JSON})
     public List<User> getAllUsers(
@@ -34,15 +28,6 @@ public class UserResource {
             return userService.getAllUsers(limit);
     }
 
-
-    /**
-     * @author Jesse Minneboo
-     * @param firstname firstname
-     * @param surname lastname
-     * @param username username
-     * @param password password
-     * @return user service
-     */
     @POST
     @Path("/register")
     @Produces({MediaType.APPLICATION_JSON})
@@ -61,17 +46,11 @@ public class UserResource {
         );
     }
 
-    /**
-     * @author Jesse Minneboo
-     * @param username username
-     * @param password password
-     * @return user service
-     */
     @POST
     @Path("/login")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public User postLoginAction(
+    public User loginUser(
             @FormParam("user_username") String username,
             @FormParam("user_password") String password
     ) {
@@ -80,7 +59,4 @@ public class UserResource {
                 password
         );
     }
-
-
-
 }

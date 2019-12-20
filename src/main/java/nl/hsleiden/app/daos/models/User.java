@@ -1,5 +1,6 @@
-package nl.hsleiden.app.models;
+package nl.hsleiden.app.daos.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
@@ -15,9 +16,8 @@ public class User {
     @JsonProperty
     private String username;
 
-    @JsonProperty
+    @JsonIgnore
     private String password;
-
 
     public User(long id, String firstname, String surname, String username, String password){
         this.setId(id);

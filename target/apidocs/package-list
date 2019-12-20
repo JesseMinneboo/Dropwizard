@@ -1,10 +1,7 @@
 nl.hsleiden.app
 nl.hsleiden.app.checks
 nl.hsleiden.app.daos
-nl.hsleiden.app.daos.product
-nl.hsleiden.app.daos.user
-nl.hsleiden.app.interfaces.abstracts
-nl.hsleiden.app.interfaces.enums
-nl.hsleiden.app.models
+nl.hsleiden.app.daos.mappers
+nl.hsleiden.app.daos.models
 nl.hsleiden.app.resources
 nl.hsleiden.app.services
