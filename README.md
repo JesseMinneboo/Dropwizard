@@ -54,82 +54,36 @@ This RESTful API is build with the following:
 * [Maven](https://maven.apache.org/)
 
 
-
 <!-- GETTING STARTED -->
 ## Getting Started
-
-Before you can run the API there are a few steps you need to do
-
-### Prerequisites
-
-If you would like to run the project follow the steps below
-
-* npm
-```sh
-npm install npm@latest -g
-```
-* download Postman (optional)
-```sh
-https://www.getpostman.com/
-```
-* download Xampp or use your own MySql server
-```sh
-https://www.apachefriends.org/index.html
-```
-* MYSQL database: Update the main.yml if your configuration differs. In this example, we use
-```sh
-database: database_name
-user: database_user
-pass: database_password
-```
-
-
-### Installation
-
-1. Clone the repo
-```sh
-git clone https://github.com/JesseMinneboo/Dropwizard.git
-```
-2. Install NPM packages if needed
-```sh
-npm install
-```
-
-
 ### Build
 * Compiling
 ```sh
 mvn clean package
 ```
 
-
 * Creating the database
 ```sh
 java -jar target/PROJECTNAME.jar db migrate main.yml
 ```
-
 
 * Run
 ```sh
 java -jar target/PROJECTNAME.jar server main.yml
 ```
 
-
 * Open API in browser
 ```sh
 http://localhost:9000
 ```
-
 
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/JesseMinneboo/Dropwizard/issues) for a list of proposed features (and known issues).
 
-
 <!-- LICENSE -->
 ## License
-
 Distributed under the MIT License. See `LICENSE` for more information.
 
 
@@ -137,15 +91,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Jesse Minneboo - [My LinkedIn](https://www.linkedin.com/in/jesseminneboo) - info@minnict.nl
-
 Project Link: [https://github.com/JesseMinneboo/Dropwizard](https://github.com/JesseMinneboo/Dropwizard)
-
-
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Img Shields](https://shields.io)
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
