@@ -36,7 +36,7 @@ public interface GameDao {
     @Mapper(GameMapper.class)
     List<Game> getAllGamesFromDatabase();
 
-    @SqlUpdate("DELETE FROM game where game_id = :game_id")
+    @SqlUpdate("DELETE FROM game WHERE game_id = :game_id")
     void deleteGameByIdFromDatabase(@Bind("game_id") long id);
 
     @SqlUpdate("UPDATE game SET game_name = :game_name, game_description = :game_description, game_price = :game_price, game_image_path = :game_image_path WHERE game_id = :game_id")

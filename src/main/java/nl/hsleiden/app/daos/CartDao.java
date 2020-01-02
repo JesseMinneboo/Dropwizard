@@ -26,16 +26,27 @@ public interface CartDao {
             @Bind("user_id") long userId
     );
 
-    @SqlUpdate("INSERT INTO cart (cart_user_id, cart_game_id) VALUES (:user_id, :product_id);")
+    @SqlUpdate("INSERT INTO cart (cart_user_id, cart_game_id) VALUES (:user_id, :product_id)")
     @GetGeneratedKeys
     Long insertItemToCartInDatabase(
             @Bind("user_id") long userId,
             @Bind("product_id") long productId
     );
 
-    @SqlQuery("SELECT * FROM cart WHERE cart_id = :cart_id")
-//    @Mapper()
+    @SqlQuery("SELECT game.game_name, game.game_description, game.game_price FROM cart LEFT JOIN game ON game.game_id = cart.cart_game_id WHERE cart.cart_id = :cart_id")
+    @Mapper(ItemMapper.class)
     Item findCartItemById(
+            @Bind("cart_id") long cartId
+    );
+
+    @SqlQuery("SELECT cart_id FROM cart LEFT JOIN game ON cart.cart_game_id = game.game_id WHERE cart.cart_game_id = :game_id AND cart_user_id = :user_id ")
+    long findCartIdWithGameIdAndUserId(
+            @Bind("game_id") long gameId,
+            @Bind("user_id") long userId
+    );
+
+    @SqlUpdate("DELETE FROM cart WHERE cart_id = :cart_id")
+    void deleteItemFromCart(
             @Bind("cart_id") long cartId
     );
 }

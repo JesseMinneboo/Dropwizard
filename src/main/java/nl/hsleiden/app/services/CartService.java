@@ -21,9 +21,15 @@ public class CartService {
         return cartDao.getAllShoppingCartItemsFromDatabase(limit, userId);
     }
 
-    public Item addItemToCart(long userId, long productId) {
-        long cartId = cartDao.insertItemToCartInDatabase(userId, productId);
+    public Item addItemToCart(long userId, long gameId) {
+        long cartId = cartDao.insertItemToCartInDatabase(userId, gameId);
         Item newItem = cartDao.findCartItemById(cartId);
         return newItem;
+    }
+
+    public boolean deleteItemFromCart(long userId, long gameId) {
+        long cartId = cartDao.findCartIdWithGameIdAndUserId(gameId, userId);
+        cartDao.deleteItemFromCart(cartId);
+        return true;
     }
 }

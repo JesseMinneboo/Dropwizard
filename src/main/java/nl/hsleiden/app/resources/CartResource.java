@@ -34,8 +34,18 @@ public class CartResource {
     @Produces({MediaType.APPLICATION_JSON})
     public Item addItemToCart (
             @PathParam("id") long userId,
-            @QueryParam("product_id") long productId
+            @FormParam("game_id") long gameId
     ) {
-        return cartService.addItemToCart(userId, productId);
+        return cartService.addItemToCart(userId, gameId);
+    }
+
+    @DELETE
+    @Path("/{id}/delete")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void deleteCartItem (
+            @PathParam("id") long userId,
+            @FormParam("game_id") long gameId
+    ) {
+        cartService.deleteItemFromCart(userId, gameId);
     }
 }
