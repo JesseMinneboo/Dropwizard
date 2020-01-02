@@ -91,6 +91,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Jesse Minneboo - [My LinkedIn](https://www.linkedin.com/in/jesseminneboo) - info@minnict.nl
+
 Project Link: [https://github.com/JesseMinneboo/Dropwizard](https://github.com/JesseMinneboo/Dropwizard)
 
 <!-- ACKNOWLEDGEMENTS -->
