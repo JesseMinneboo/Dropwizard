@@ -16,7 +16,7 @@ public class UserResource {
         this.userService = userService;
     }
 
-    @GET // TESTING PURPOSES
+    @GET
     @Path("/all")
     @Produces({MediaType.APPLICATION_JSON})
     public List<User> getAllUsers(
