@@ -22,9 +22,9 @@ public class DatabaseHealthCheck extends HealthCheck {
 
             handle.close();
         } catch (Exception e) {
-            return Result.unhealthy("Database is not running! :(");
+            return Result.unhealthy("Database is not running!");
         }
 
-        return Result.healthy("Database is healthy :)");
+        return Result.healthy("Database is healthy!");
     }
 }

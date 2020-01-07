@@ -2,12 +2,15 @@ package nl.hsleiden.app.resources;
 
 import nl.hsleiden.app.daos.models.User;
 import nl.hsleiden.app.services.UserService;
-
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+
+/**
+ * @author Jesse Minneboo
+ */
 @Path("/user")
 public class UserResource {
     private UserService userService;
@@ -16,6 +19,12 @@ public class UserResource {
         this.userService = userService;
     }
 
+
+    /**
+     *
+     * @param limit the limit of users to fetch
+     * @return a list of users
+     */
     @GET
     @Path("/all")
     @Produces({MediaType.APPLICATION_JSON})
@@ -28,6 +37,15 @@ public class UserResource {
             return userService.getAllUsers(limit);
     }
 
+
+    /**
+     *
+     * @param firstname first name of a new user
+     * @param surname last name of a new user
+     * @param username the username which they need to login
+     * @param password a password
+     * @return a newly created user
+     */
     @POST
     @Path("/register")
     @Produces({MediaType.APPLICATION_JSON})
@@ -46,6 +64,13 @@ public class UserResource {
         );
     }
 
+
+    /**
+     *
+     * @param username the user name of a user
+     * @param password the password of a user
+     * @return a user if the credentials are correct
+     */
     @POST
     @Path("/login")
     @Produces({MediaType.APPLICATION_JSON})
