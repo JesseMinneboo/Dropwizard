@@ -16,6 +16,14 @@
             <column name="user_surname" type="varchar(255)"/>
             <column name="user_username" type="varchar(255)"/>
             <column name="user_password" type="varchar(255)"/>
+            <column name="user_role_id" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="role">
+            <column name="role_id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="role_name" type="varchar(255)"/>
         </createTable>
 
         <createTable tableName="game">
@@ -44,6 +52,20 @@
             <column name="cart_game_id" type="bigint"/> <!--FOREIGN KEY-->
         </createTable>
 
+        <createTable tableName="admin_website_searches">
+            <column name="counter" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="admin_games_bought">
+            <column name="counter" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="admin_money_earned">
+            <column name="counter" type="numeric(20,2)"/>
+        </createTable>
+
+
+
 
         <!-- adding foreign key constraints-->
         <addForeignKeyConstraint
@@ -52,6 +74,13 @@
                 constraintName="fk_cart_user_id"
                 referencedColumnNames="user_id"
                 referencedTableName="user"/>
+
+        <addForeignKeyConstraint
+                baseTableName="user"
+                baseColumnNames="user_role_id"
+                constraintName="fk_user_role_id"
+                referencedTableName="role"
+                referencedColumnNames="role_id"/>
 
         <addForeignKeyConstraint
                 baseColumnNames="order_user_id"
@@ -67,13 +96,26 @@
                 referencedColumnNames="game_id"
                 referencedTableName="game"/>
 
+
+        <insert tableName="role">
+            <column name="role_id">1</column>
+            <column name="role_name">admin</column>
+        </insert>
+
+        <insert tableName="role">
+            <column name="role_id">2</column>
+            <column name="role_name">customer</column>
+        </insert>
+
         <!-- seeding tables -->
         <insert tableName="user">
             <column name="user_name">Jesse</column>
             <column name="user_surname">Minneboo</column>
-            <column name="user_username">minnebro</column>
+            <column name="user_username">info@minnict.nl</column>
             <column name="user_password">7bdb867406014343d036c33421671556</column>
+            <column name="user_role_id">1</column>
         </insert>
+
 
         <insert tableName="game">
             <column name="game_name">Terraria</column>
@@ -85,6 +127,18 @@
         <insert tableName="cart">
             <column name="cart_user_id">1</column>
             <column name="cart_game_id">1</column>
+        </insert>
+
+        <insert tableName="admin_website_searches">
+            <column name="counter">0</column>
+        </insert>
+
+        <insert tableName="admin_games_bought">
+            <column name="counter">0</column>
+        </insert>
+
+        <insert tableName="admin_money_earned">
+            <column name="counter">0.00</column>
         </insert>
 
 

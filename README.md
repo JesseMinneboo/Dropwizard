@@ -26,11 +26,7 @@ MYSQL database: Update the main.yml if your configuration differs. In this examp
 	
 ### Run:
     
-    * if using a intelligent IDE u should configure the 
-        <MainService> class 
-    as the running class.
-    
-	* if not run -> java -jar target/dropwizard-1.0.0.jar server main.yml
+    java -jar target/dropwizard-1.0.0.jar server main.yml
 	
 ### Watch changes
     

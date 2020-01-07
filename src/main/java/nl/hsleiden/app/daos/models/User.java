@@ -19,12 +19,24 @@ public class User {
     @JsonIgnore
     private String password;
 
-    public User(long id, String firstname, String surname, String username, String password){
+    @JsonProperty
+    private int role;
+
+    public User(long id, String firstname, String surname, String username, String password, int role){
         this.setId(id);
         this.setFirstname(firstname);
         this.setSurname(surname);
         this.setUsername(username);
         this.setPassword(password);
+        this.setRole(role);
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 
     public String getFirstname() {

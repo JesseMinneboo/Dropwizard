@@ -7,13 +7,12 @@ import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import nl.hsleiden.app.checks.DatabaseHealthCheck;
+import nl.hsleiden.app.daos.AdminDao;
 import nl.hsleiden.app.daos.CartDao;
 import nl.hsleiden.app.daos.GameDao;
 import nl.hsleiden.app.daos.UserDao;
-import nl.hsleiden.app.resources.CartResource;
-import nl.hsleiden.app.resources.HtmlPageResource;
-import nl.hsleiden.app.resources.GameResource;
-import nl.hsleiden.app.resources.UserResource;
+import nl.hsleiden.app.resources.*;
+import nl.hsleiden.app.services.AdminService;
 import nl.hsleiden.app.services.CartService;
 import nl.hsleiden.app.services.GameService;
 import nl.hsleiden.app.services.UserService;
@@ -38,6 +37,7 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         final UserDao userDao = jdbi.onDemand(UserDao.class);
         final GameDao gameDao = jdbi.onDemand(GameDao.class);
         final CartDao cartDao = jdbi.onDemand(CartDao.class);
+        final AdminDao adminDao = jdbi.onDemand((AdminDao.class));
 
         // Enable CORS headers
         final FilterRegistration.Dynamic cors =
@@ -62,6 +62,10 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         // shopping cart path
         environment.jersey().register(new CartResource(
                 new CartService(cartDao)));
+
+        // admin panel path
+        environment.jersey().register(new AdminResource(
+                new AdminService(adminDao)));
 
         // index.html
         environment.jersey().register(

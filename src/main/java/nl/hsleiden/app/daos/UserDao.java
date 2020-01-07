@@ -20,7 +20,7 @@ public interface UserDao {
     @Mapper(UserMapper.class)
     List<User> getAllUsersFromDatabase(@Bind("limit") int limit);
 
-    @SqlUpdate("INSERT INTO user (user_name, user_surname, user_username, user_password) VALUES (:firstname, :surname, :username, MD5(:password))")
+    @SqlUpdate("INSERT INTO user (user_name, user_surname, user_username, user_password, user_role_id) VALUES (:firstname, :surname, :username, MD5(:password), 2)")
     @GetGeneratedKeys
     long insertUserIntoDatabase(
             @Bind("firstname") String firstname,

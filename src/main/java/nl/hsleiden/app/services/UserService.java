@@ -28,6 +28,7 @@ public class UserService {
     ) {
         long userId = userDao.insertUserIntoDatabase(firstname, surname, username, password);
         User newUser = userDao.findUserById(userId);
+        System.out.println(newUser.getRole());
         return newUser;
     }
 

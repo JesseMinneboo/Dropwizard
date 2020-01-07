@@ -15,7 +15,8 @@ public class UserMapper implements ResultSetMapper<User> {
                 resultSet.getString("user_name"),
                 resultSet.getString("user_surname"),
                 resultSet.getString("user_username"),
-                resultSet.getString("user_password")
+                resultSet.getString("user_password"),
+                resultSet.getInt("user_role_id")
         );
     }
 }
