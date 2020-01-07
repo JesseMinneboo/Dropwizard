@@ -3,6 +3,10 @@ package nl.hsleiden.app.daos.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+/**
+ * @author Jesse Minneboo
+ */
 public class User {
     @JsonProperty
     private long id;

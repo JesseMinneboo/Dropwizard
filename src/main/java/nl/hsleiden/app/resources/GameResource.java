@@ -2,14 +2,15 @@ package nl.hsleiden.app.resources;
 
 import nl.hsleiden.app.daos.models.Game;
 import nl.hsleiden.app.services.GameService;
-import org.skife.jdbi.v2.sqlobject.Bind;
-
-import javax.print.attribute.standard.Media;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+
+/**
+ * @author Jesse Minneboo
+ */
 @Path("/game")
 public class GameResource {
     private GameService gameService;
@@ -18,6 +19,7 @@ public class GameResource {
         this.gameService = gameService;
     }
 
+
     @GET
     @Path("/latest")
     @Produces({MediaType.APPLICATION_JSON})
@@ -25,12 +27,14 @@ public class GameResource {
         return gameService.getLatestGames();
     }
 
+
     @GET
     @Path("/popular")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Game> getPopularGames() {
         return gameService.getPopularGames();
     }
+
 
     @PUT
     @Path("/{id}/seen/add")
@@ -41,6 +45,7 @@ public class GameResource {
         gameService.addGameCounter(gameId);
     }
 
+
     @GET
     @Path("/{id}/seen/get")
     @Produces({MediaType.APPLICATION_JSON})
@@ -49,6 +54,7 @@ public class GameResource {
     ) {
         return gameService.getGameCounter(gameId);
     }
+
 
     @GET
     @Path("/free")
@@ -70,6 +76,7 @@ public class GameResource {
             return gameService.getAllGames(limit);
     }
 
+
     @GET
     @Path("/find")
     @Produces({MediaType.APPLICATION_JSON})
@@ -78,6 +85,7 @@ public class GameResource {
     ) {
         return gameService.findGameByTitle(result);
     }
+
 
     @POST
     @Path("/add")
@@ -97,6 +105,7 @@ public class GameResource {
         );
     }
 
+
     @DELETE
     @Path("/{id}/delete")
     @Produces({MediaType.APPLICATION_JSON})
@@ -105,6 +114,7 @@ public class GameResource {
     ) {
         gameService.deleteGame(gameId);
     }
+
 
     @PUT
     @Path("/{id}/edit")
@@ -120,5 +130,4 @@ public class GameResource {
     ) {
         gameService.editGame(gameId, gameTitle, gameDescription, gamePrice, gameImagePath);
     }
-
 }

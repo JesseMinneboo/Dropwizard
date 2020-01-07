@@ -3,10 +3,13 @@ package nl.hsleiden.app.daos.mappers;
 import nl.hsleiden.app.daos.models.Item;
 import org.skife.jdbi.v2.StatementContext;
 import org.skife.jdbi.v2.tweak.ResultSetMapper;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
+/**
+ * @author Jesse Minneboo
+ */
 public class ItemMapper implements ResultSetMapper<Item> {
 
     @Override

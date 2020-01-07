@@ -18,14 +18,16 @@ import nl.hsleiden.app.services.GameService;
 import nl.hsleiden.app.services.UserService;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.skife.jdbi.v2.DBI;
-
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
 import java.util.EnumSet;
 import java.util.HashMap;
 
+
+/**
+ * @author Jesse Minneboo
+ */
 public class DropwizardApplication extends Application<DropwizardConfiguration> {
-    final static String API_VERSION = "V0.1";
 
     public static void main(String[] args) throws Exception {
         new DropwizardApplication().run(args);
@@ -85,11 +87,5 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
             }
         });
         bootstrap.addBundle(new MultiPartBundle());
-    }
-
-    public static HashMap<String, String> getVersion() {
-        HashMap<String, String> version = new HashMap<>();
-        version.put("version", API_VERSION);
-        return version;
     }
 }

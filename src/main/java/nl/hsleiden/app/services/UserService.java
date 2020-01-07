@@ -16,33 +16,16 @@ public class UserService {
     }
 
 
-    /**
-     *
-     * @return a list of all users
-     */
     public static List<User> getAllUsers() {
         return userDao.getAllUsersFromDatabase();
     }
 
 
-    /**
-     *
-     * @param limit max limit of users to fetch
-     * @return a limited list of users
-     */
     public static List<User> getAllUsers(int limit) {
         return userDao.getAllUsersFromDatabase(limit);
     }
 
 
-    /**
-     *
-     * @param firstname first name of an user
-     * @param surname last name of an user
-     * @param username user name of an user
-     * @param password password of an user
-     * @return a new created user
-     */
     public User registerUser(
             String firstname,
             String surname,
@@ -56,12 +39,6 @@ public class UserService {
     }
 
 
-    /**
-     *
-     * @param username user name of an user
-     * @param password password of an user
-     * @return an authenticated user
-     */
     public User loginUser(String username, String password) {
         User authenticatedUser = userDao.loginUser(username, password);
         return authenticatedUser;

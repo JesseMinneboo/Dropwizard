@@ -12,6 +12,10 @@ import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.net.URL;
 
+
+/**
+ * @author Jesse Minneboo
+ */
 @Path("/")
 public class HtmlPageResource {
     @GET
@@ -27,15 +31,5 @@ public class HtmlPageResource {
         }
 
         return Response.ok(pageContent).build();
-    }
-
-    @GET
-    @Path("version")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response version() {
-        return Response
-                .status(Response.Status.OK)
-                .entity(DropwizardApplication.getVersion())
-                .build();
     }
 }

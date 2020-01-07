@@ -2,6 +2,10 @@ package nl.hsleiden.app.daos.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+/**
+ * @author Jesse Minneboo
+ */
 public class Game {
     @JsonProperty
     private long id;

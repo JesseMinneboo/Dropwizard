@@ -3,11 +3,14 @@ package nl.hsleiden.app.resources;
 import nl.hsleiden.app.daos.models.Game;
 import nl.hsleiden.app.daos.models.Item;
 import nl.hsleiden.app.services.CartService;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
+
+/**
+ * @author Jesse Minneboo
+ */
 @Path("/cart")
 public class CartResource {
     private CartService cartService;
@@ -15,6 +18,7 @@ public class CartResource {
     public CartResource(CartService cartService) {
         this.cartService = cartService;
     }
+
 
     @GET
     @Path("/{id}/all")
@@ -29,6 +33,7 @@ public class CartResource {
             return cartService.getALlGamesFromCart(limit, userId);
     }
 
+
     @POST
     @Path("/{id}/add")
     @Produces({MediaType.APPLICATION_JSON})
@@ -38,6 +43,7 @@ public class CartResource {
     ) {
         return cartService.addItemToCart(userId, gameId);
     }
+
 
     @DELETE
     @Path("/{id}/delete")
