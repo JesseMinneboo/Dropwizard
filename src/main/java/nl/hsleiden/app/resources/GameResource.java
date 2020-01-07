@@ -2,6 +2,7 @@ package nl.hsleiden.app.resources;
 
 import nl.hsleiden.app.daos.models.Game;
 import nl.hsleiden.app.services.GameService;
+import org.skife.jdbi.v2.sqlobject.Bind;
 
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
@@ -22,6 +23,39 @@ public class GameResource {
     public List<Game> getLatestGames() {
         return gameService.getLatestGames();
     }
+
+    @GET
+    @Path("/popular")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Game> getPopularGames() {
+        return gameService.getPopularGames();
+    }
+
+    @PUT
+    @Path("/{id}/seen/add")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addGameCounter(
+            @PathParam("id") long gameId
+    ) {
+        gameService.addGameCounter(gameId);
+    }
+
+    @GET
+    @Path("/{id}/seen/get")
+    @Produces({MediaType.APPLICATION_JSON})
+    public long getGameCounter(
+            @PathParam("id") long gameId
+    ) {
+        return gameService.getGameCounter(gameId);
+    }
+
+    @GET
+    @Path("/free")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Game> getFreeGames() {
+        return gameService.getFreeGames();
+    }
+
 
     @GET
     @Path("/all")

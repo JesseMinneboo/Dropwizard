@@ -16,7 +16,8 @@ public class GameMapper implements ResultSetMapper<Game> {
                 resultSet.getString("game_name"),
                 resultSet.getString("game_description"),
                 resultSet.getDouble("game_price"),
-                resultSet.getString("game_image_path")
+                resultSet.getString("game_image_path"),
+                resultSet.getLong("game_counter")
         );
     }
 }
