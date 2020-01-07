@@ -15,6 +15,14 @@ public interface GameDao {
     @Mapper(GameMapper.class)
     List<Game> getLatestGamesFromDatabase();
 
+    @SqlQuery("SELECT * FROM game ORDER BY game_counter DESC LIMIT 4")
+    @Mapper(GameMapper.class)
+    List<Game> getPopularGamesFromDatabase();
+
+    @SqlQuery("SELECT * FROM game WHERE game_price = 0.0 LIMIT 4")
+    @Mapper(GameMapper.class)
+    List<Game> getFreeGamesFromDatabase();
+
     @SqlUpdate("INSERT INTO game (game_name, game_description, game_price, game_image_path) VALUES (:name, :description, :price, :imagePath)")
     @GetGeneratedKeys
     long insertGameIntoDatabase(
@@ -46,5 +54,14 @@ public interface GameDao {
             @Bind("game_description") String gameDescription,
             @Bind("game_price") double gamePrice,
             @Bind("game_image_path")String gameImagePath
+    );
+
+    @SqlQuery("SELECT game_counter FROM game WHERE game_id = :game_id")
+    long getGameCounterFromGameId(@Bind("game_id") long gameId);
+
+    @SqlUpdate("UPDATE game SET game_counter = :new_value WHERE game_id = :game_id")
+    void AddGameCounter(
+            @Bind("new_value") long counterNew,
+            @Bind("game_id") long gameId
     );
 }

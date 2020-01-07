@@ -56,4 +56,22 @@ public class GameService {
         gameDao.editGameByIdFromDatabase(game.getId(), gameName, gameDescription, gamePrice, gameImagePath);
         return true;
     }
+
+    public List<Game> getPopularGames() {
+        return gameDao.getPopularGamesFromDatabase();
+    }
+
+    public List<Game> getFreeGames() {
+        return gameDao.getFreeGamesFromDatabase();
+    }
+
+    public void addGameCounter(Long gameId) {
+        long counterOld = gameDao.getGameCounterFromGameId(gameId);
+        long counterNew = counterOld + 1;
+        gameDao.AddGameCounter(counterNew, gameId);
+    }
+
+    public long getGameCounter(long gameId) {
+        return gameDao.getGameCounterFromGameId(gameId);
+    }
 }

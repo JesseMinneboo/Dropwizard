@@ -18,12 +18,24 @@ public class Game {
     @JsonProperty
     private String imagePath;
 
-    public Game(long id, String name, String description, double price, String imagePath) {
+    @JsonProperty
+    private long gameCounter;
+
+    public Game(long id, String name, String description, double price, String imagePath, long counter) {
         this.setId(id);
         this.setName(name);
         this.setDescription(description);
         this.setPrice(price);
         this.setImagePath(imagePath);
+        this.setGameCounter(counter);
+    }
+
+    public long getGameCounter() {
+        return gameCounter;
+    }
+
+    public void setGameCounter(long gameCounter) {
+        this.gameCounter = gameCounter;
     }
 
     public long getId() {

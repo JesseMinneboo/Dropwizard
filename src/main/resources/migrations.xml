@@ -33,6 +33,7 @@
             <column name="game_description" type="varchar(255)"/>
             <column name="game_price" type="numeric(5,2)"/>
             <column name="game_image_path" type="varchar(255)"/>
+            <column name="game_counter" type="bigint"/>
         </createTable>
 
         <createTable tableName="order">
@@ -119,9 +120,10 @@
 
         <insert tableName="game">
             <column name="game_name">Terraria</column>
-            <column name="game_description">Dit is een epische game</column>
+            <column name="game_description">Epic open world game</column>
             <column name="game_price">20.99</column>
-            <column name="game_image_path">testtesttest</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/105600/header.jpg?t=1548954652</column>
+            <column name="game_counter">20</column>
         </insert>
 
         <insert tableName="cart">
