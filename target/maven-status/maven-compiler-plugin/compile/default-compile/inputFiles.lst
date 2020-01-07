@@ -1,10 +1,13 @@
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\services\GameService.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\GameDao.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\HtmlPageResource.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\services\AdminService.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\models\Item.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\DropwizardApplication.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\AdminResource.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\mappers\GameMapper.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\DropwizardConfiguration.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\AdminDao.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\models\User.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\mappers\ItemMapper.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\CartResource.java

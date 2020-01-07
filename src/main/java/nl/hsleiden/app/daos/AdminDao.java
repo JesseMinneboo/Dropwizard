@@ -10,5 +10,22 @@ public interface AdminDao {
     long getWebsiteSearchesCounter();
 
     @SqlUpdate("UPDATE admin_website_searches SET counter = :counter_now + 1")
-    int addToSearchesCounter(@Bind("counter_now") long counterNow);
+    void addToSearchesCounter(@Bind("counter_now") long counterNow);
+
+
+    @SqlUpdate("UPDATE admin_money_earned SET counter = :counter_now + :money")
+    void addMoneyToMoneyEarned(
+            @Bind("money") float money,
+            @Bind("counter_now") float counterNow
+        );
+
+    @SqlQuery("SELECT counter FROM admin_money_earned")
+    float getMoneyFromEarned();
+
+
+    @SqlQuery("SELECT counter FROM admin_games_bought")
+    long getSoldGames();
+
+    @SqlUpdate("UPDATE admin_games_bought SET counter = :counter_now + 1")
+    void addGameToSold(@Bind("counter_now") long counterNow);
 }

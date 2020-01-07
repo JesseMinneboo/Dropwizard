@@ -9,13 +9,31 @@ public class AdminService {
         AdminService.adminDao = adminDao;
     }
 
-    public int addSearchesToCounter() {
+    public void addSearchesToCounter() {
         long counterNow = adminDao.getWebsiteSearchesCounter();
         System.out.println(counterNow);
-        return adminDao.addToSearchesCounter(counterNow);
+        adminDao.addToSearchesCounter(counterNow);
     }
 
     public long getWebsiteSearches() {
         return adminDao.getWebsiteSearchesCounter();
+    }
+
+    public void addMoneyToMoneyEarned(float money) {
+        float moneyNow = adminDao.getMoneyFromEarned();
+        adminDao.addMoneyToMoneyEarned(money, moneyNow);
+    }
+
+    public float getMoneyFromEarned() {
+        return adminDao.getMoneyFromEarned();
+    }
+
+    public void addGameToSold() {
+        long counterNow = adminDao.getSoldGames();
+        adminDao.addGameToSold(counterNow);
+    }
+
+    public long getGamesSold() {
+        return adminDao.getSoldGames();
     }
 }
