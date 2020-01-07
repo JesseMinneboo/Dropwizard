@@ -64,4 +64,10 @@ public interface GameDao {
             @Bind("new_value") long counterNew,
             @Bind("game_id") long gameId
     );
+
+    @SqlQuery("SELECT * FROM game WHERE game_name LIKE :result")
+    @Mapper(GameMapper.class)
+    List<Game> findGameByTitleInDatabase(
+            @Bind("result") String result
+    );
 }

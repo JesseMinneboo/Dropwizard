@@ -74,4 +74,8 @@ public class GameService {
     public long getGameCounter(long gameId) {
         return gameDao.getGameCounterFromGameId(gameId);
     }
+
+    public List<Game> findGameByTitle(String result) {
+        return gameDao.findGameByTitleInDatabase("%" + result + "%");
+    }
 }

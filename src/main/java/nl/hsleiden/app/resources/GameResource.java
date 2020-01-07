@@ -4,6 +4,7 @@ import nl.hsleiden.app.daos.models.Game;
 import nl.hsleiden.app.services.GameService;
 import org.skife.jdbi.v2.sqlobject.Bind;
 
+import javax.print.attribute.standard.Media;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -67,6 +68,15 @@ public class GameResource {
             return gameService.getAllGames();
         else
             return gameService.getAllGames(limit);
+    }
+
+    @GET
+    @Path("/find")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Game> findGameByTitle(
+            @QueryParam("searchResult") String result
+    ) {
+        return gameService.findGameByTitle(result);
     }
 
     @POST
