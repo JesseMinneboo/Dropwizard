@@ -28,4 +28,7 @@ public interface AdminDao {
 
     @SqlUpdate("UPDATE admin_games_bought SET counter = :counter_now + 1")
     void addGameToSold(@Bind("counter_now") long counterNow);
+
+    @SqlQuery("SELECT COUNT(game_id) FROM game")
+    long getStock();
 }

@@ -12,6 +12,13 @@ public class AdminResource {
         this.adminService = adminService;
     }
 
+    @GET
+    @Path("/website/games/stock")
+    @Produces({MediaType.APPLICATION_JSON})
+    public long getStockFromWebsite() {
+        return adminService.getStock();
+    }
+
     @PUT
     @Path("/website/searches/add")
     @Produces({MediaType.APPLICATION_JSON})

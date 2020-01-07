@@ -36,4 +36,8 @@ public class AdminService {
     public long getGamesSold() {
         return adminDao.getSoldGames();
     }
+
+    public long getStock() {
+        return adminDao.getStock();
+    }
 }
