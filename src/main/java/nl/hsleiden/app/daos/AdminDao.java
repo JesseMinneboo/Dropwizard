@@ -6,7 +6,7 @@ import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 
 
 /**
- * @auhtor Jesse Minneboo
+ * @author Jesse Minneboo
  */
 public interface AdminDao {
     @SqlQuery("SELECT counter FROM admin_website_searches")

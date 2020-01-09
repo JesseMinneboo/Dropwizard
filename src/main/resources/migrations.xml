@@ -65,9 +65,6 @@
             <column name="counter" type="numeric(20,2)"/>
         </createTable>
 
-
-
-
         <!-- adding foreign key constraints-->
         <addForeignKeyConstraint
                 baseColumnNames="cart_user_id"
@@ -88,14 +85,18 @@
                 baseTableName="order"
                 constraintName="fk_order_user_id"
                 referencedColumnNames="user_id"
-                referencedTableName="user"/>
+                referencedTableName="user"
+                onUpdate="CASCADE"
+                onDelete="CASCADE"/>
 
         <addForeignKeyConstraint
                 baseColumnNames="cart_game_id"
                 baseTableName="cart"
                 constraintName="fk_cart_game_id"
                 referencedColumnNames="game_id"
-                referencedTableName="game"/>
+                referencedTableName="game"
+                onUpdate="CASCADE"
+                onDelete="CASCADE"/>
 
 
         <insert tableName="role">
