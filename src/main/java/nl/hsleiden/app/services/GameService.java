@@ -93,4 +93,8 @@ public class GameService {
     public List<Game> findGameByTitle(String result) {
         return gameDao.findGameByTitleInDatabase("%" + result + "%");
     }
+
+    public Game findGameById(long gameId) {
+        return gameDao.findGameByIdInDatabase(gameId);
+    }
 }

@@ -36,6 +36,16 @@ public class GameResource {
     }
 
 
+    @GET
+    @Path("/{id}")
+    @Produces({MediaType.APPLICATION_JSON})
+    public Game findGameById(
+            @PathParam("id") long gameId
+    ) {
+        return gameService.findGameById(gameId);
+    }
+
+
     @PUT
     @Path("/{id}/seen/add")
     @Produces({MediaType.APPLICATION_JSON})
