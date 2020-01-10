@@ -12,9 +12,9 @@
         <createTable tableName="user">
             <column name="user_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/></column>
+            <column name="user_username" type="varchar(255)"/>
             <column name="user_name" type="varchar(255)"/>
             <column name="user_surname" type="varchar(255)"/>
-            <column name="user_username" type="varchar(255)"/>
             <column name="user_password" type="varchar(255)"/>
             <column name="user_role_id" type="bigint"/>
         </createTable>
@@ -111,10 +111,10 @@
 
         <!-- seeding tables -->
         <insert tableName="user">
+            <column name="user_username">info@minnict.nl</column>
             <column name="user_name">Jesse</column>
             <column name="user_surname">Minneboo</column>
-            <column name="user_username">info@minnict.nl</column>
-            <column name="user_password">7bdb867406014343d036c33421671556</column>
+            <column name="user_password">482c811da5d5b4bc6d497ffa98491e38</column>
             <column name="user_role_id">1</column>
         </insert>
 

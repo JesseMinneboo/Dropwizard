@@ -14,32 +14,23 @@ import java.util.List;
  * @author Jesse Minneboo
  */
 public interface UserDao {
-    @SqlQuery("SELECT * FROM user")
+    @SqlQuery("SELECT * FROM user WHERE user_username = :username AND user_password = MD5(:password)")
     @Mapper(UserMapper.class)
-    List<User> getAllUsersFromDatabase();
+    User getAuthenticatedUser(@Bind("username") String username, @Bind("password") String password);
 
-
-    @SqlQuery("SELECT * FROM user LIMIT :limit")
-    @Mapper(UserMapper.class)
-    List<User> getAllUsersFromDatabase(@Bind("limit") int limit);
-
-
-    @SqlUpdate("INSERT INTO user (user_name, user_surname, user_username, user_password, user_role_id) VALUES (:firstname, :surname, :username, MD5(:password), 2)")
+    @SqlUpdate("INSERT INTO user (user_username, user_name, user_surname, user_password, user_role_id) VALUES (:username, :name, :surname, MD5(:password), 2)")
     @GetGeneratedKeys
-    long insertUserIntoDatabase(
-            @Bind("firstname") String firstname,
-            @Bind("surname") String surname,
+    long insertUserIntoUsers(
             @Bind("username") String username,
+            @Bind("name") String name,
+            @Bind("surname") String surname,
             @Bind("password") String password
     );
-
 
     @SqlQuery("SELECT * FROM user WHERE user_id = :userId")
     @Mapper(UserMapper.class)
     User findUserById(@Bind("userId") long userId);
 
 
-    @SqlQuery("SELECT * FROM user WHERE user_username = :username AND user_password = MD5(:password)")
-    @Mapper(UserMapper.class)
-    User loginUser(@Bind("username") String username, @Bind("password") String password);
+
 }

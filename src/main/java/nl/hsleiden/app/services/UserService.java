@@ -2,45 +2,43 @@ package nl.hsleiden.app.services;
 
 import nl.hsleiden.app.daos.UserDao;
 import nl.hsleiden.app.daos.models.User;
-import java.util.List;
-
 
 /**
  * @author Jesse Minneboo
  */
 public class UserService {
     private static UserDao userDao;
+    private static User authenticatedUser;
 
     public UserService(UserDao userDao) {
         UserService.userDao = userDao;
     }
 
+    public User getAuthenticatedUser(String username, String password) {
+        User authenticatedUser = userDao.getAuthenticatedUser(username, password);
 
-    public static List<User> getAllUsers() {
-        return userDao.getAllUsersFromDatabase();
+        if (authenticatedUser == null)
+            return new User();
+
+        return authenticatedUser;
     }
-
-
-    public static List<User> getAllUsers(int limit) {
-        return userDao.getAllUsersFromDatabase(limit);
-    }
-
 
     public User registerUser(
-            String firstname,
-            String surname,
             String username,
+            String name,
+            String surname,
             String password
     ) {
-        long userId = userDao.insertUserIntoDatabase(firstname, surname, username, password);
-        User newUser = userDao.findUserById(userId);
-        System.out.println(newUser.getRole());
-        return newUser;
+        long userId = userDao.insertUserIntoUsers(name, surname, username, password);
+
+        return userDao.findUserById(userId);
     }
 
+    public static User getUserById(long id) {
+        return userDao.findUserById(id);
+    }
 
-    public User loginUser(String username, String password) {
-        User authenticatedUser = userDao.loginUser(username, password);
-        return authenticatedUser;
+    public static void setAuthUser(User authUser) {
+        authenticatedUser = authUser;
     }
 }

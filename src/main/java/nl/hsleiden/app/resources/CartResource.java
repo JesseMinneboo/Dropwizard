@@ -2,6 +2,7 @@ package nl.hsleiden.app.resources;
 
 import nl.hsleiden.app.daos.models.Game;
 import nl.hsleiden.app.daos.models.Item;
+import nl.hsleiden.app.filters.bindings.AuthBinding;
 import nl.hsleiden.app.services.CartService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -21,6 +22,7 @@ public class CartResource {
 
 
     @GET
+//    @AuthBinding
     @Path("/{id}/all")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Game> getAllGamesFromCart (
@@ -33,7 +35,6 @@ public class CartResource {
             return cartService.getALlGamesFromCart(limit, userId);
     }
 
-
     @POST
     @Path("/{id}/add")
     @Produces({MediaType.APPLICATION_JSON})
@@ -43,7 +44,6 @@ public class CartResource {
     ) {
         return cartService.addItemToCart(userId, gameId);
     }
-
 
     @DELETE
     @Path("/{id}/delete")

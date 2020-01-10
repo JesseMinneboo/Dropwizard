@@ -12,13 +12,13 @@ public class User {
     private long id;
 
     @JsonProperty
-    private String firstname;
+    private String username;
+
+    @JsonProperty
+    private String name;
 
     @JsonProperty
     private String surname;
-
-    @JsonProperty
-    private String username;
 
     @JsonIgnore
     private String password;
@@ -26,37 +26,18 @@ public class User {
     @JsonProperty
     private int role;
 
-    public User(long id, String firstname, String surname, String username, String password, int role){
+    @JsonProperty
+    private String jwt;
+
+    public User(){}
+
+    public User(long id, String username, String name, String surname, String password, int role){
         this.setId(id);
-        this.setFirstname(firstname);
-        this.setSurname(surname);
         this.setUsername(username);
+        this.setName(name);
+        this.setSurname(surname);
         this.setPassword(password);
         this.setRole(role);
-    }
-
-    public int getRole() {
-        return role;
-    }
-
-    public void setRole(int role) {
-        this.role = role;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public long getId() {
@@ -75,11 +56,43 @@ public class User {
         this.username = username;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    public String getJwt() {
+        return jwt;
+    }
+
+    public void setJwt(String jwt) {
+        this.jwt = jwt;
     }
 }

@@ -3,5 +3,8 @@ nl.hsleiden.app.checks
 nl.hsleiden.app.daos
 nl.hsleiden.app.daos.mappers
 nl.hsleiden.app.daos.models
+nl.hsleiden.app.filters
+nl.hsleiden.app.filters.bindings
+nl.hsleiden.app.providers
 nl.hsleiden.app.resources
 nl.hsleiden.app.services

@@ -1,11 +1,11 @@
 package nl.hsleiden.app.resources;
 
+import nl.hsleiden.app.DropwizardApplication;
 import nl.hsleiden.app.daos.models.User;
 import nl.hsleiden.app.services.UserService;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
 
 
 /**
@@ -19,49 +19,39 @@ public class UserResource {
         this.userService = userService;
     }
 
-
-    @GET
-    @Path("/all")
+    @POST
+    @Path("/login")
     @Produces({MediaType.APPLICATION_JSON})
-    public List<User> getAllUsers(
-            @QueryParam("limit") int limit
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public User postLoginUser(
+            @FormParam("username") String username,
+            @FormParam("password") String password
     ) {
-        if(limit < 1)
-            return userService.getAllUsers();
-        else
-            return userService.getAllUsers(limit);
-    }
+        User authenticatedUser = userService.getAuthenticatedUser(username, password);
 
+        if(authenticatedUser != null)
+            authenticatedUser.setJwt(
+                    DropwizardApplication.tokenProvider
+                    .generateToken(authenticatedUser.getId())
+            );
+
+        return authenticatedUser;
+    }
 
     @POST
     @Path("/register")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public User registerUser(
-            @NotNull @FormParam("user_name") String firstname,
-            @NotNull @FormParam("user_surname") String surname,
-            @NotNull @FormParam("user_username") String username,
-            @NotNull @FormParam("user_password") String password
+    public User postRegisterUser(
+            @NotNull @FormParam("username") String username,
+            @NotNull @FormParam("name") String name,
+            @NotNull @FormParam("surname") String surname,
+            @NotNull @FormParam("password") String password
     ) {
         return userService.registerUser(
-                firstname,
+                username,
+                name,
                 surname,
-                username,
-                password
-        );
-    }
-
-
-    @POST
-    @Path("/login")
-    @Produces({MediaType.APPLICATION_JSON})
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public User loginUser(
-            @FormParam("user_username") String username,
-            @FormParam("user_password") String password
-    ) {
-        return userService.loginUser(
-                username,
                 password
         );
     }

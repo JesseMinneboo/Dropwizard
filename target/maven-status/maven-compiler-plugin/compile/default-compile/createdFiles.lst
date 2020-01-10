@@ -1,6 +1,8 @@
 nl\hsleiden\app\daos\mappers\GameMapper.class
 nl\hsleiden\app\DropwizardApplication$1.class
+nl\hsleiden\app\providers\TokenProvider.class
 nl\hsleiden\app\services\CartService.class
+nl\hsleiden\app\filters\bindings\AuthBinding.class
 nl\hsleiden\app\DropwizardConfiguration.class
 nl\hsleiden\app\resources\GameResource.class
 nl\hsleiden\app\daos\AdminDao.class
@@ -17,6 +19,7 @@ nl\hsleiden\app\services\AdminService.class
 nl\hsleiden\app\resources\CartResource.class
 nl\hsleiden\app\daos\models\User.class
 nl\hsleiden\app\daos\UserDao.class
+nl\hsleiden\app\filters\AuthenticationFilter.class
 nl\hsleiden\app\daos\GameDao.class
 nl\hsleiden\app\services\GameService.class
 nl\hsleiden\app\daos\CartDao.class

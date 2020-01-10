@@ -32,4 +32,15 @@ public class HtmlPageResource {
 
         return Response.ok(pageContent).build();
     }
+
+    @GET
+    @Path("version")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response version() {
+        return Response
+                .status(Response.Status.OK)
+                .entity(DropwizardApplication.getVersion())
+                .build();
+    }
+
 }

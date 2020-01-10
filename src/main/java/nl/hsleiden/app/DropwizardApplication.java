@@ -11,6 +11,8 @@ import nl.hsleiden.app.daos.AdminDao;
 import nl.hsleiden.app.daos.CartDao;
 import nl.hsleiden.app.daos.GameDao;
 import nl.hsleiden.app.daos.UserDao;
+import nl.hsleiden.app.filters.AuthenticationFilter;
+import nl.hsleiden.app.providers.TokenProvider;
 import nl.hsleiden.app.resources.*;
 import nl.hsleiden.app.services.AdminService;
 import nl.hsleiden.app.services.CartService;
@@ -28,6 +30,8 @@ import java.util.HashMap;
  * @author Jesse Minneboo
  */
 public class DropwizardApplication extends Application<DropwizardConfiguration> {
+    final static String API_VERSION = "0.1.0";
+    public static TokenProvider tokenProvider;
 
     public static void main(String[] args) throws Exception {
         new DropwizardApplication().run(args);
@@ -53,6 +57,9 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         // Add URL mapping
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
+        // filters
+        environment.jersey().register(new AuthenticationFilter());
+
         // user path
         environment.jersey().register(new UserResource(
                 new UserService(userDao)));
@@ -77,6 +84,9 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         // Database health check
         environment.healthChecks().register("checks",
                 new DatabaseHealthCheck(jdbi, configuration.getDataSourceFactory().getValidationQuery()));
+
+        // jwt token
+        tokenProvider = new TokenProvider();
     }
 
     @Override
@@ -87,5 +97,12 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
             }
         });
         bootstrap.addBundle(new MultiPartBundle());
+    }
+
+    public static HashMap<String, String> getVersion() {
+        HashMap<String, String> version = new HashMap<>();
+        version.put("version", API_VERSION);
+
+        return version;
     }
 }
