@@ -3,12 +3,12 @@ package nl.hsleiden.app.services;
 import nl.hsleiden.app.daos.UserDao;
 import nl.hsleiden.app.daos.models.User;
 
+
 /**
  * @author Jesse Minneboo
  */
 public class UserService {
     private static UserDao userDao;
-    private static User authenticatedUser;
 
     public UserService(UserDao userDao) {
         UserService.userDao = userDao;
@@ -29,7 +29,12 @@ public class UserService {
             String surname,
             String password
     ) {
-        long userId = userDao.insertUserIntoUsers(name, surname, username, password);
+        long userId = userDao.insertUserIntoUsers(
+                name,
+                surname,
+                username,
+                password
+        );
 
         return userDao.findUserById(userId);
     }
@@ -39,6 +44,5 @@ public class UserService {
     }
 
     public static void setAuthUser(User authUser) {
-        authenticatedUser = authUser;
     }
 }

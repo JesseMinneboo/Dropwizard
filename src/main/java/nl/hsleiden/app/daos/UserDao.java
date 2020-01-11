@@ -7,7 +7,6 @@ import org.skife.jdbi.v2.sqlobject.GetGeneratedKeys;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.Mapper;
-import java.util.List;
 
 
 /**
@@ -16,7 +15,10 @@ import java.util.List;
 public interface UserDao {
     @SqlQuery("SELECT * FROM user WHERE user_username = :username AND user_password = MD5(:password)")
     @Mapper(UserMapper.class)
-    User getAuthenticatedUser(@Bind("username") String username, @Bind("password") String password);
+    User getAuthenticatedUser(
+            @Bind("username") String username,
+            @Bind("password") String password
+    );
 
     @SqlUpdate("INSERT INTO user (user_username, user_name, user_surname, user_password, user_role_id) VALUES (:username, :name, :surname, MD5(:password), 2)")
     @GetGeneratedKeys
@@ -29,7 +31,9 @@ public interface UserDao {
 
     @SqlQuery("SELECT * FROM user WHERE user_id = :userId")
     @Mapper(UserMapper.class)
-    User findUserById(@Bind("userId") long userId);
+    User findUserById(
+            @Bind("userId") long userId
+    );
 
 
 

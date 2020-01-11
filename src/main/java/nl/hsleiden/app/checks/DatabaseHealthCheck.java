@@ -17,14 +17,11 @@ public class DatabaseHealthCheck extends HealthCheck {
     protected Result check() throws Exception {
         try {
             final Handle handle = dbi.open();
-
             handle.execute(validationQuery);
-
             handle.close();
         } catch (Exception e) {
             return Result.unhealthy("Database is not running!");
         }
-
         return Result.healthy("Database is healthy!");
     }
 }

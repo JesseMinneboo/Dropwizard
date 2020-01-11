@@ -22,7 +22,6 @@ public class CartResource {
 
 
     @GET
-//    @AuthBinding
     @Path("/{id}/all")
     @Produces({MediaType.APPLICATION_JSON})
     public List<Game> getAllGamesFromCart (

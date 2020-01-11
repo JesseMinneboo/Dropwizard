@@ -20,33 +20,27 @@ public class AdminService {
         adminDao.addToSearchesCounter(counterNow);
     }
 
-
     public long getWebsiteSearches() {
         return adminDao.getWebsiteSearchesCounter();
     }
-
 
     public void addMoneyToMoneyEarned(float money) {
         float moneyNow = adminDao.getMoneyFromEarned();
         adminDao.addMoneyToMoneyEarned(money, moneyNow);
     }
 
-
     public float getMoneyFromEarned() {
         return adminDao.getMoneyFromEarned();
     }
-
 
     public void addGameToSold() {
         long counterNow = adminDao.getSoldGames();
         adminDao.addGameToSold(counterNow);
     }
 
-
     public long getGamesSold() {
         return adminDao.getSoldGames();
     }
-
 
     public long getStock() {
         return adminDao.getStock();

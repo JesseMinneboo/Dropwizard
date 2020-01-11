@@ -21,18 +21,15 @@ public class CartService {
         return cartDao.getAllShoppingCartItemsFromDatabase(userId);
     }
 
-
     public List<Game> getALlGamesFromCart(int limit, long userId) {
         return cartDao.getAllShoppingCartItemsFromDatabase(limit, userId);
     }
-
 
     public Item addItemToCart(long userId, long gameId) {
         long cartId = cartDao.insertItemToCartInDatabase(userId, gameId);
         Item newItem = cartDao.findCartItemById(cartId);
         return newItem;
     }
-
 
     public boolean deleteItemFromCart(long userId, long gameId) {
         long cartId = cartDao.findCartIdWithGameIdAndUserId(gameId, userId);

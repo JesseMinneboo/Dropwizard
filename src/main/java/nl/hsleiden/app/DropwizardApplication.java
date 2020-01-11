@@ -102,7 +102,6 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
     public static HashMap<String, String> getVersion() {
         HashMap<String, String> version = new HashMap<>();
         version.put("version", API_VERSION);
-
         return version;
     }
 }

@@ -27,7 +27,6 @@ public class GameResource {
         return gameService.getLatestGames();
     }
 
-
     @GET
     @Path("/popular")
     @Produces({MediaType.APPLICATION_JSON})
@@ -35,6 +34,12 @@ public class GameResource {
         return gameService.getPopularGames();
     }
 
+    @GET
+    @Path("/free")
+    @Produces({MediaType.APPLICATION_JSON})
+    public List<Game> getFreeGames() {
+        return gameService.getFreeGames();
+    }
 
     @GET
     @Path("/{id}")
@@ -45,17 +50,6 @@ public class GameResource {
         return gameService.findGameById(gameId);
     }
 
-
-    @PUT
-    @Path("/{id}/seen/add")
-    @Produces({MediaType.APPLICATION_JSON})
-    public void addGameCounter(
-            @PathParam("id") long gameId
-    ) {
-        gameService.addGameCounter(gameId);
-    }
-
-
     @GET
     @Path("/{id}/seen/get")
     @Produces({MediaType.APPLICATION_JSON})
@@ -64,15 +58,6 @@ public class GameResource {
     ) {
         return gameService.getGameCounter(gameId);
     }
-
-
-    @GET
-    @Path("/free")
-    @Produces({MediaType.APPLICATION_JSON})
-    public List<Game> getFreeGames() {
-        return gameService.getFreeGames();
-    }
-
 
     @GET
     @Path("/all")
@@ -86,7 +71,6 @@ public class GameResource {
             return gameService.getAllGames(limit);
     }
 
-
     @GET
     @Path("/find")
     @Produces({MediaType.APPLICATION_JSON})
@@ -96,16 +80,15 @@ public class GameResource {
         return gameService.findGameByTitle(result);
     }
 
-
     @POST
     @Path("/add")
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Game addNewGame(
-            @NotNull @FormParam("product_name") String productName,
-            @NotNull @FormParam("product_description") String productDescription,
-            @NotNull @FormParam("product_price") double productPrice,
-            @NotNull @FormParam("product_image_path") String productImagePath
+            @NotNull @FormParam("name") String productName,
+            @NotNull @FormParam("description") String productDescription,
+            @NotNull @FormParam("price") double productPrice,
+            @NotNull @FormParam("image_path") String productImagePath
     ) {
         return gameService.addNewGame(
                 productName,
@@ -115,7 +98,6 @@ public class GameResource {
         );
     }
 
-
     @DELETE
     @Path("/{id}/delete")
     @Produces({MediaType.APPLICATION_JSON})
@@ -124,7 +106,6 @@ public class GameResource {
     ) {
         gameService.deleteGame(gameId);
     }
-
 
     @PUT
     @Path("/{id}/edit")
@@ -139,5 +120,14 @@ public class GameResource {
 
     ) {
         gameService.editGame(gameId, gameTitle, gameDescription, gamePrice, gameImagePath);
+    }
+
+    @PUT
+    @Path("/{id}/seen/add")
+    @Produces({MediaType.APPLICATION_JSON})
+    public void addGameCounter(
+            @PathParam("id") long gameId
+    ) {
+        gameService.addGameCounter(gameId);
     }
 }

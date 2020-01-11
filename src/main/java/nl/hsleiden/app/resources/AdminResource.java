@@ -16,14 +16,12 @@ public class AdminResource {
         this.adminService = adminService;
     }
 
-
     @GET
     @Path("/website/games/stock")
     @Produces({MediaType.APPLICATION_JSON})
     public long getStockFromWebsite() {
         return adminService.getStock();
     }
-
 
     @PUT
     @Path("/website/searches/add")
@@ -32,14 +30,12 @@ public class AdminResource {
          adminService.addSearchesToCounter();
     }
 
-
     @GET
     @Path("/website/searches/get")
     @Produces({MediaType.APPLICATION_JSON})
     public long getWebsiteSearches() {
         return adminService.getWebsiteSearches();
     }
-
 
     @PUT
     @Path("/website/money/add")
@@ -50,7 +46,6 @@ public class AdminResource {
         adminService.addMoneyToMoneyEarned(money);
     }
 
-
     @GET
     @Path("/website/money/earned")
     @Produces({MediaType.APPLICATION_JSON})
@@ -58,14 +53,12 @@ public class AdminResource {
         return adminService.getMoneyFromEarned();
     }
 
-
     @PUT
     @Path("/website/games/sold/add")
     @Produces({MediaType.APPLICATION_JSON})
     public void addGameToSold() {
         adminService.addGameToSold();
     }
-
 
     @GET
     @Path("/website/games/sold/all")
