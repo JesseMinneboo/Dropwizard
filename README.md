@@ -90,7 +90,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Jesse Minneboo - [My LinkedIn](https://www.linkedin.com/in/jesseminneboo) - info@minnict.nl
+Jesse Minneboo - [My LinkedIn](https://www.linkedin.com/in/jesseminneboo) - info@jesseminneboo.nl
 
 Project Link: [https://github.com/JesseMinneboo/Dropwizard](https://github.com/JesseMinneboo/Dropwizard)
 
