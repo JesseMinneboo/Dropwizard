@@ -23,7 +23,7 @@ public class ShoppingCartResource {
     @Path("/all") // get all items from ID
     @Produces({MediaType.APPLICATION_JSON})
     public List<Game> getAllGamesFromShoppingCart(
-            @FormParam("user_id") long userId,
+            @QueryParam("user_id") long userId,
             @QueryParam("limit") int limit
     ) {
         if(limit < 1)

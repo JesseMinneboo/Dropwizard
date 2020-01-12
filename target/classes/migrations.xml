@@ -12,10 +12,10 @@
         <createTable tableName="user">
             <column name="user_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/></column>
-            <column name="user_username" type="varchar(255)"/>
-            <column name="user_name" type="varchar(255)"/>
-            <column name="user_surname" type="varchar(255)"/>
-            <column name="user_password" type="varchar(255)"/>
+            <column name="user_username" type="varchar(256)"/>
+            <column name="user_name" type="varchar(256)"/>
+            <column name="user_surname" type="varchar(256)"/>
+            <column name="user_password" type="varchar(256)"/>
             <column name="user_role_id" type="bigint"/>
         </createTable>
 
@@ -23,16 +23,16 @@
             <column name="role_id" type="bigint">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="role_name" type="varchar(255)"/>
+            <column name="role_name" type="varchar(256)"/>
         </createTable>
 
         <createTable tableName="game">
             <column name="game_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/></column>
-            <column name="game_name" type="varchar(50)"/>
-            <column name="game_description" type="varchar(255)"/>
+            <column name="game_name" type="varchar(64)"/>
+            <column name="game_description" type="varchar(1024)"/>
             <column name="game_price" type="numeric(5,2)"/>
-            <column name="game_image_path" type="varchar(255)"/>
+            <column name="game_image_path" type="varchar(512)"/>
             <column name="game_counter" type="bigint"/>
         </createTable>
 
@@ -121,11 +121,76 @@
 
         <insert tableName="game">
             <column name="game_name">Terraria</column>
-            <column name="game_description">Epic open world game</column>
-            <column name="game_price">20.99</column>
+            <column name="game_description">Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available! </column>
+            <column name="game_price">29.99</column>
             <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/105600/header.jpg?t=1548954652</column>
-            <column name="game_counter">20</column>
+            <column name="game_counter">0</column>
         </insert>
+
+        <insert tableName="game">
+            <column name="game_name">A hat in time</column>
+            <column name="game_description">A Hat in Time is a cute-as-heck 3D platformer featuring a little girl who stitches hats for wicked powers! Freely explore giant worlds and recover Time Pieces to travel to new heights! </column>
+            <column name="game_price">19.99</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/253230/header.jpg?t=1569865449</column>
+            <column name="game_counter">0</column>
+        </insert>
+
+        <insert tableName="game">
+            <column name="game_name">SUPERHOT VR</column>
+            <column name="game_description">Lose track of what’s real. Commit yourself, body and mind. Confront the evocative, elegantly brutal world of SUPERHOT VR. Enemies pouring into the room from all sides, dozens of bullets coursing through the air... Wait. Something seems different in here... </column>
+            <column name="game_price">22.00</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/617830/header.jpg?t=1575461705</column>
+            <column name="game_counter">0</column>
+        </insert>
+
+        <insert tableName="game">
+            <column name="game_name">STAR WARS Jedi: Fallen Order</column>
+            <column name="game_description">A galaxy-spanning adventure awaits in Star Wars Jedi: Fallen Order, a 3rd person action-adventure title from Respawn. An abandoned Padawan must complete his training, develop new powerful Force abilities, and master the art of the lightsaber - all while staying one step ahead of the Empire. </column>
+            <column name="game_price">59.99</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/1172380/header.jpg?t=1576783987</column>
+            <column name="game_counter">0</column>
+        </insert>
+
+        <insert tableName="game">
+            <column name="game_name">Raft</column>
+            <column name="game_description">Raft throws you and your friends into an epic oceanic adventure! Alone or together, players battle to survive a perilous voyage across a vast sea! Gather debris, scavenge reefs and build your own floating home, but be wary of the man-eating sharks! </column>
+            <column name="game_price">19.99</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/648800/header.jpg?t=1575637395</column>
+            <column name="game_counter">0</column>
+        </insert>
+
+        <insert tableName="game">
+            <column name="game_name">GTFO</column>
+            <column name="game_description">GTFO is a hardcore 4 player cooperative first-person shooter, with a focus on team play and atmosphere. It features edge-of-your-seat suspense, team-based puzzle-solving and high-intensity combat. </column>
+            <column name="game_price">34.00</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/493520/header.jpg?t=1576225411</column>
+            <column name="game_counter">0</column>
+        </insert>
+
+        <insert tableName="game">
+            <column name="game_name">Rust</column>
+            <column name="game_description">The only aim in Rust is to survive - Overcome struggles such as hunger, thirst and cold. Build a fire. Build a shelter. Kill animals. Protect yourself from other players. </column>
+            <column name="game_price">29.99</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/252490/header.jpg?t=1576615774</column>
+            <column name="game_counter">0</column>
+        </insert>
+
+        <insert tableName="game">
+            <column name="game_name">The Forest</column>
+            <column name="game_description">As the lone survivor of a passenger jet crash, you find yourself in a mysterious forest battling to stay alive against a society of cannibalistic mutants. Build, explore, survive in this terrifying first person survival horror simulator. </column>
+            <column name="game_price">16.79</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/242760/header.jpg?t=1568768340</column>
+            <column name="game_counter">0</column>
+        </insert>
+
+        <insert tableName="game">
+            <column name="game_name">Dying Light</column>
+            <column name="game_description">First-person action survival game set in a post-apocalyptic open world overrun by flesh-hungry zombies. Roam a city devastated by a mysterious virus epidemic. Scavenge for supplies, craft weapons, and face hordes of the infected. </column>
+            <column name="game_price">29.99</column>
+            <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/239140/header.jpg?t=1576846267</column>
+            <column name="game_counter">0</column>
+        </insert>
+
 
         <insert tableName="cart">
             <column name="cart_user_id">1</column>
