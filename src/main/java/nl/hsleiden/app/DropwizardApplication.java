@@ -28,7 +28,7 @@ import java.util.HashMap;
  * @author Jesse Minneboo
  */
 public class DropwizardApplication extends Application<DropwizardConfiguration> {
-    final static String API_VERSION = "0.1.0";
+    final static String API_VERSION = "0.1.1";
     public static TokenProvider tokenProvider;
 
     public static void main(String[] args) throws Exception {
@@ -42,16 +42,12 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         final GameDao gameDao = jdbi.onDemand(GameDao.class);
         final ShoppingCartDao shoppingCartDao = jdbi.onDemand(ShoppingCartDao.class);
 
-        // Enable CORS headers
         final FilterRegistration.Dynamic cors =
                 environment.servlets().addFilter("CORS", CrossOriginFilter.class);
 
-        // Configure CORS parameters
         cors.setInitParameter("allowedOrigins", "*");
         cors.setInitParameter("allowedHeaders", "X-Requested-With,Content-Type,Accept,Origin,Authorization");
         cors.setInitParameter("allowedMethods", "OPTIONS,GET,PUT,POST,DELETE,HEAD");
-
-        // Add URL mapping
         cors.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 
         // filters
