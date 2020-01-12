@@ -14,16 +14,16 @@ import java.util.List;
 /**
  * @author Jesse Minneboo
  */
-public interface CartDao {
+public interface ShoppingCartDao {
     @SqlQuery("SELECT g.game_name, g.game_description, g.game_price FROM game g RIGHT JOIN cart c ON g.game_id = c.cart_game_id WHERE cart_user_id = :user_id")
     @Mapper(ItemMapper.class)
-    List<Game> getAllShoppingCartItemsFromDatabase(
+    List<Game> getAllGamesFromShoppingCart(
             @Bind("user_id") long userId
     );
 
     @SqlQuery("SELECT g.game_name, g.game_description, g.game_price FROM game g RIGHT JOIN cart c ON g.game_id = c.cart_game_id WHERE cart_user_id = :user_id LIMIT :limit")
     @Mapper(ItemMapper.class)
-    List<Game> getAllShoppingCartItemsFromDatabase(
+    List<Game> getAllGamesFromShoppingCart(
             @Bind("limit") int limit,
             @Bind("user_id") long userId
     );
@@ -42,13 +42,13 @@ public interface CartDao {
     );
 
     @SqlQuery("SELECT cart_id FROM cart LEFT JOIN game ON cart.cart_game_id = game.game_id WHERE cart.cart_game_id = :game_id AND cart_user_id = :user_id ")
-    long findCartIdWithGameIdAndUserId(
-            @Bind("game_id") long gameId,
-            @Bind("user_id") long userId
+    long findShoppingCartId(
+            @Bind("user_id") long userId,
+            @Bind("game_id") long gameId
     );
 
     @SqlUpdate("DELETE FROM cart WHERE cart_id = :cart_id")
-    void deleteItemFromCart(
+    void deleteGameFromShoppingCart(
             @Bind("cart_id") long cartId
     );
 }

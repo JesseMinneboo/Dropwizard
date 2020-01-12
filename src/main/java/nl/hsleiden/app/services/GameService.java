@@ -15,16 +15,15 @@ public class GameService {
         GameService.gameDao = GameDao;
     }
 
-
-    public List<Game> getLatestGames() {
+    public List<Game> getFourNewGames() {
         return gameDao.getLatestGamesFromDatabase();
     }
 
-    public List<Game> getPopularGames() {
+    public List<Game> getFourPopularGames() {
         return gameDao.getPopularGamesFromDatabase();
     }
 
-    public List<Game> getFreeGames() {
+    public List<Game> getFourFreeGames() {
         return gameDao.getFreeGamesFromDatabase();
     }
 
@@ -51,13 +50,13 @@ public class GameService {
         return newGame;
     }
 
-    public boolean deleteGame(long gameId) {
+    public boolean deleteGameById(long gameId) {
         Game game = GameService.getGame(gameId);
         gameDao.deleteGameByIdFromDatabase(game.getId());
         return true;
     }
 
-    public boolean editGame(
+    public boolean editGameById(
             long gameId,
             String gameName,
             String gameDescription,
@@ -65,19 +64,20 @@ public class GameService {
             String gameImagePath
     ) {
         Game game = GameService.getGame(gameId);
-        gameDao.editGameByIdFromDatabase(game.getId(), gameName, gameDescription, gamePrice, gameImagePath);
+        gameDao.editGameByIdFromDatabase(
+                game.getId(),
+                gameName,
+                gameDescription,
+                gamePrice,
+                gameImagePath);
+
         return true;
     }
 
-
-    public void addGameCounter(Long gameId) {
+    public void addGameCounterById(Long gameId) {
         long counterOld = gameDao.getGameCounterFromGameId(gameId);
         long counterNew = counterOld + 1;
         gameDao.AddGameCounter(counterNew, gameId);
-    }
-
-    public long getGameCounter(long gameId) {
-        return gameDao.getGameCounterFromGameId(gameId);
     }
 
     public List<Game> findGameByTitle(String result) {
