@@ -24,10 +24,10 @@ public class UserResource {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public User postLoginUser(
-            @FormParam("username") String username,
+            @FormParam("email") String email,
             @FormParam("password") String password
     ) {
-        User authenticatedUser = userService.getAuthenticatedUser(username, password);
+        User authenticatedUser = userService.getAuthenticatedUser(email, password);
 
         if(authenticatedUser != null)
             authenticatedUser.setJwt(
@@ -43,13 +43,13 @@ public class UserResource {
     @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public User postRegisterUser(
-            @NotNull @FormParam("username") String username,
+            @NotNull @FormParam("email") String email,
             @NotNull @FormParam("name") String name,
             @NotNull @FormParam("surname") String surname,
             @NotNull @FormParam("password") String password
     ) {
         return userService.registerUser(
-                username,
+                email,
                 name,
                 surname,
                 password

@@ -7,23 +7,15 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
 
     <changeSet id="1" author="jesse">
-
         <!-- adding tables to the database -->
         <createTable tableName="user">
             <column name="user_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/></column>
-            <column name="user_username" type="varchar(256)"/>
+            <column name="user_email" type="varchar(256)"/>
             <column name="user_name" type="varchar(256)"/>
             <column name="user_surname" type="varchar(256)"/>
             <column name="user_password" type="varchar(256)"/>
             <column name="user_role_id" type="bigint"/>
-        </createTable>
-
-        <createTable tableName="role">
-            <column name="role_id" type="bigint">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="role_name" type="varchar(256)"/>
         </createTable>
 
         <createTable tableName="game">
@@ -45,79 +37,15 @@
             <column name="order_price" type="numeric(5,2)"/>
         </createTable>
 
-        <createTable tableName="cart">
-            <column name="cart_id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="cart_user_id" type="bigint"/> <!--FOREIGN KEY-->
-            <column name="cart_game_id" type="bigint"/> <!--FOREIGN KEY-->
-        </createTable>
-
-        <createTable tableName="admin_website_searches">
-            <column name="counter" type="bigint"/>
-        </createTable>
-
-        <createTable tableName="admin_games_bought">
-            <column name="counter" type="bigint"/>
-        </createTable>
-
-        <createTable tableName="admin_money_earned">
-            <column name="counter" type="numeric(20,2)"/>
-        </createTable>
-
-        <!-- adding foreign key constraints-->
-        <addForeignKeyConstraint
-                baseColumnNames="cart_user_id"
-                baseTableName="cart"
-                constraintName="fk_cart_user_id"
-                referencedColumnNames="user_id"
-                referencedTableName="user"/>
-
-        <addForeignKeyConstraint
-                baseTableName="user"
-                baseColumnNames="user_role_id"
-                constraintName="fk_user_role_id"
-                referencedTableName="role"
-                referencedColumnNames="role_id"/>
-
-        <addForeignKeyConstraint
-                baseColumnNames="order_user_id"
-                baseTableName="order"
-                constraintName="fk_order_user_id"
-                referencedColumnNames="user_id"
-                referencedTableName="user"
-                onUpdate="CASCADE"
-                onDelete="CASCADE"/>
-
-        <addForeignKeyConstraint
-                baseColumnNames="cart_game_id"
-                baseTableName="cart"
-                constraintName="fk_cart_game_id"
-                referencedColumnNames="game_id"
-                referencedTableName="game"
-                onUpdate="CASCADE"
-                onDelete="CASCADE"/>
-
-
-        <insert tableName="role">
-            <column name="role_id">1</column>
-            <column name="role_name">admin</column>
-        </insert>
-
-        <insert tableName="role">
-            <column name="role_id">2</column>
-            <column name="role_name">customer</column>
-        </insert>
 
         <!-- seeding tables -->
         <insert tableName="user">
-            <column name="user_username">info@minnict.nl</column>
+            <column name="user_email">info@minnict.nl</column>
             <column name="user_name">Jesse</column>
             <column name="user_surname">Minneboo</column>
             <column name="user_password">482c811da5d5b4bc6d497ffa98491e38</column>
             <column name="user_role_id">1</column>
         </insert>
-
 
         <insert tableName="game">
             <column name="game_name">Terraria</column>
@@ -190,26 +118,6 @@
             <column name="game_image_path">https://steamcdn-a.akamaihd.net/steam/apps/239140/header.jpg?t=1576846267</column>
             <column name="game_counter">0</column>
         </insert>
-
-
-        <insert tableName="cart">
-            <column name="cart_user_id">1</column>
-            <column name="cart_game_id">1</column>
-        </insert>
-
-        <insert tableName="admin_website_searches">
-            <column name="counter">0</column>
-        </insert>
-
-        <insert tableName="admin_games_bought">
-            <column name="counter">0</column>
-        </insert>
-
-        <insert tableName="admin_money_earned">
-            <column name="counter">0.00</column>
-        </insert>
-
-
     </changeSet>
 
 </databaseChangeLog>

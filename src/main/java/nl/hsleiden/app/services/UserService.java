@@ -14,25 +14,25 @@ public class UserService {
         UserService.userDao = userDao;
     }
 
-    public User getAuthenticatedUser(String username, String password) {
-        User authenticatedUser = userDao.getAuthenticatedUser(username, password);
+    public User getAuthenticatedUser(String email, String password) {
+        User authenticatedUser = userDao.getAuthenticatedUser(email, password);
 
         if (authenticatedUser == null)
-            return new User();
+            return null;
 
         return authenticatedUser;
     }
 
     public User registerUser(
-            String username,
+            String email,
             String name,
             String surname,
             String password
     ) {
         long userId = userDao.insertUserIntoUsers(
-                name,
+                email,
                 surname,
-                username,
+                name,
                 password
         );
 

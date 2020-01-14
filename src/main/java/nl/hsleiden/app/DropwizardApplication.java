@@ -7,13 +7,11 @@ import io.dropwizard.migrations.MigrationsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import nl.hsleiden.app.checks.DatabaseHealthCheck;
-import nl.hsleiden.app.daos.ShoppingCartDao;
 import nl.hsleiden.app.daos.GameDao;
 import nl.hsleiden.app.daos.UserDao;
 import nl.hsleiden.app.filters.AuthenticationFilter;
 import nl.hsleiden.app.providers.TokenProvider;
 import nl.hsleiden.app.resources.*;
-import nl.hsleiden.app.services.ShoppingCartService;
 import nl.hsleiden.app.services.GameService;
 import nl.hsleiden.app.services.UserService;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
@@ -40,7 +38,6 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
         final UserDao userDao = jdbi.onDemand(UserDao.class);
         final GameDao gameDao = jdbi.onDemand(GameDao.class);
-        final ShoppingCartDao shoppingCartDao = jdbi.onDemand(ShoppingCartDao.class);
 
         final FilterRegistration.Dynamic cors =
                 environment.servlets().addFilter("CORS", CrossOriginFilter.class);
@@ -60,10 +57,6 @@ public class DropwizardApplication extends Application<DropwizardConfiguration> 
         // game path
         environment.jersey().register(new GameResource(
                 new GameService(gameDao)));
-
-        // shopping cart path
-        environment.jersey().register(new ShoppingCartResource(
-                new ShoppingCartService(shoppingCartDao)));
 
         // index.html
         environment.jersey().register(
