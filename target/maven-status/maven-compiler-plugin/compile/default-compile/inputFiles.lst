@@ -1,17 +1,17 @@
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\filters\AuthenticationFilter.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\services\GameService.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\GameDao.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\HtmlPageResource.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\filters\bindings\AuthBinding.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\DropwizardApplication.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\mappers\GameMapper.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\DropwizardConfiguration.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\models\User.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\providers\TokenProvider.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\GameResource.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\UserDao.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\services\UserService.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\checks\DatabaseHealthCheck.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\models\Game.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\mappers\UserMapper.java
-C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\UserResource.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\providers\TokenProvider.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\UserDao.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\models\User.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\mappers\GameMapper.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\UserResource.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\services\GameService.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\models\Game.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\services\UserService.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\mappers\UserMapper.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\filters\AuthenticationFilter.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\checks\DatabaseHealthCheck.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\GameResource.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\filters\bindings\AuthBinding.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\daos\GameDao.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\resources\HtmlPageResource.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\DropwizardApplication.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\DropwizardConfiguration.java

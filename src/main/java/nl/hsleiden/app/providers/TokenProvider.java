@@ -26,6 +26,7 @@ public class TokenProvider {
     private RSAPrivateKey privateKey;
     private RSAPublicKey publicKey;
 
+
     public TokenProvider() {
         Map<String, Object> keys = generateKeyPair();
         this.privateKey = (RSAPrivateKey) Objects.requireNonNull(keys).get(PRIVATE_KEY);

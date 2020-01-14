@@ -1,6 +1,7 @@
 package nl.hsleiden.app.resources;
 
 import nl.hsleiden.app.daos.models.Game;
+import nl.hsleiden.app.filters.bindings.AuthBinding;
 import nl.hsleiden.app.services.GameService;
 import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
