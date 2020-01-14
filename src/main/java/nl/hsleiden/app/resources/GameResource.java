@@ -33,6 +33,7 @@ public class GameResource {
     }
 
     @GET
+    @AuthBinding
     @Path("/new") // get four new games
     @Produces({MediaType.APPLICATION_JSON})
     public List<Game> getFourNewGames() {
