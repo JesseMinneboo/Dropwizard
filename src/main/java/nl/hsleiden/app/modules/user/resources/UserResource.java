@@ -36,13 +36,20 @@ public class UserResource {
             @FormParam("role") String roleType
     ) {
         if(LookupUtil.lookup(UserRoleType.class, roleType)) {
+            System.out.println(userCreateParams.getEmail());
+            System.out.println(userCreateParams.getName());
+            System.out.println(userCreateParams.getSurname());
+            System.out.println(userCreateParams.getPassword());
+
+
             return UserService.createUser(
                     new User(
                             userCreateParams.getEmail(),
                             userCreateParams.getName(),
                             userCreateParams.getSurname(),
                             userCreateParams.getPassword()
-                    )
+                    ),
+                    UserRoleType.valueOf(roleType)
             );
         } else {
             ExceptionService.throwIlIllegalArgumentException(

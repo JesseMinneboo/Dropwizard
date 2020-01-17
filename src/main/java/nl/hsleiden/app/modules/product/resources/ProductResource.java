@@ -1,7 +1,9 @@
 package nl.hsleiden.app.modules.product.resources;
 
+import nl.hsleiden.app.filters.bindings.AdminBinding;
+import nl.hsleiden.app.filters.bindings.AuthBinding;
 import nl.hsleiden.app.modules.product.models.Product;
-import nl.hsleiden.app.modules.product.resources.params.GameCreateParam;
+import nl.hsleiden.app.modules.product.resources.params.ProductCreateParam;
 import nl.hsleiden.app.modules.product.services.ProductService;
 
 import javax.ws.rs.*;
@@ -9,36 +11,36 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 
-@Path("/game")
+@Path("/product")
 @Produces({MediaType.APPLICATION_JSON})
 public class ProductResource {
 
     @GET
-    @Path("/all") // get all games
+    @Path("/all")
     public List<Product> getAllGames() {
         return ProductService.getAllGames();
     }
 
     @GET
-    @Path("/new") // get four new games
+    @Path("/new")
     public List<Product> getFourNewGames() {
         return ProductService.getFourNewGames();
     }
 
     @GET
-    @Path("/popular") // get four popular games
+    @Path("/popular")
     public List<Product> getFourPopularGames() {
         return ProductService.getFourPopularGames();
     }
 
     @GET
-    @Path("/free") // get four free games
+    @Path("/free")
     public List<Product> getFourFreeGames() {
         return ProductService.getFourFreeGames();
     }
 
     @GET
-    @Path("/find/{id}") // find game by id
+    @Path("/find/{id}")
     public Product findGameById(
             @PathParam("id") long id
     ) {
@@ -46,7 +48,7 @@ public class ProductResource {
     }
 
     @GET
-    @Path("/find") // find game with search result
+    @Path("/find")
     public List<Product> findGameByTitle(
             @QueryParam("searchString") String result
     ) {
@@ -54,22 +56,26 @@ public class ProductResource {
     }
 
     @POST
-    @Path("/add") // add game
+    @AuthBinding
+    @AdminBinding
+    @Path("/add")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Product addNewGame(
-            @BeanParam GameCreateParam gameCreateParam
+            @BeanParam ProductCreateParam productCreateParam
     ) {
         return ProductService.addNewGame(
                 new Product(
-                    gameCreateParam.getName(),
-                    gameCreateParam.getDescription(),
-                    gameCreateParam.getPrice(),
-                    gameCreateParam.getImagePath()
+                    productCreateParam.getName(),
+                    productCreateParam.getDescription(),
+                    productCreateParam.getPrice(),
+                    productCreateParam.getImagePath()
                 )
         );
     }
 
     @DELETE
+    @AuthBinding
+    @AdminBinding
     @Path("/{id}/delete") // delete game with ID
     public void deleteGameById(
             @PathParam("id") long id
@@ -78,20 +84,22 @@ public class ProductResource {
     }
 
     @PUT
+    @AuthBinding
+    @AdminBinding
     @Path("/{id}/edit") // edit game with ID
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     public void editGameById(
             @PathParam("id") long id,
-            @BeanParam GameCreateParam gameCreateParam
+            @BeanParam ProductCreateParam productCreateParam
 
     ) {
         ProductService.editGameById(
                 id,
                 new Product(
-                        gameCreateParam.getName(),
-                        gameCreateParam.getDescription(),
-                        gameCreateParam.getPrice(),
-                        gameCreateParam.getImagePath()
+                        productCreateParam.getName(),
+                        productCreateParam.getDescription(),
+                        productCreateParam.getPrice(),
+                        productCreateParam.getImagePath()
                 )
         );
     }

@@ -43,8 +43,10 @@ public class UserService extends CoreService {
         return AuthUser;
     }
 
-    public static User createUser(User user) {
-        long userId = getDao().createUser(user);
+    public static User createUser(User user, UserRoleType role) {
+        long userId  = getDao().createUser(user);
+        long userRoleId = getDao().addRoleToUser(userId, role);
+
         return getUserById(userId);
     }
 
@@ -81,7 +83,18 @@ public class UserService extends CoreService {
     }
 
     public static User getUserById(long id) {
-        return getDao().findUserById(id);
+        User user = getDao().findUserById(id);
+        if (user.isValidUser()) {
+            List<UserRole> authUserRoles = getDao().findUserRolesByUserId(
+                    user.getId()
+            );
+
+            user.setRoles(authUserRoles);
+        } else {
+            user = new User();
+        }
+
+        return user;
     }
 
     private static boolean passwordIsCorrect(String passwordGotten, String passwordUser) throws InvalidKeySpecException, NoSuchAlgorithmException {

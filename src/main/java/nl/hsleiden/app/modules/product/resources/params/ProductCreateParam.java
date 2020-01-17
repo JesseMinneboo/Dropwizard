@@ -4,7 +4,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.ws.rs.FormParam;
 
-public class GameCreateParam {
+public class ProductCreateParam {
     @NotEmpty
     private String name;
 

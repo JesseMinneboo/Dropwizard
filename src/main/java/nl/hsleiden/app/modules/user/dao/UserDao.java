@@ -21,7 +21,7 @@ public interface UserDao extends MainDao {
     @Mapper(UserMapper.class)
     User findUserByEmail(@Bind("email") String email);
 
-    @SqlQuery("SELECT * FROM user WHERE id = :id")
+    @SqlQuery("SELECT * FROM user as u LEFT JOIN user_role as ur ON ur.user_id = u.id WHERE user_id = :id")
     @Mapper(UserMapper.class)
     User findUserById(@Bind("id") long id);
 
