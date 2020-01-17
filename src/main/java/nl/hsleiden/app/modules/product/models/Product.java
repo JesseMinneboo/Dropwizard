@@ -1,12 +1,8 @@
-package nl.hsleiden.app.modules.game.models;
+package nl.hsleiden.app.modules.product.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
-/**
- * @author Jesse Minneboo
- */
-public class Game {
+public class Product {
     @JsonProperty
     private long id;
 
@@ -25,7 +21,14 @@ public class Game {
     @JsonProperty
     private long gameCounter;
 
-    public Game(long id, String name, String description, double price, String imagePath, long counter) {
+    public Product(String name, String description, double price, String imagePath) {
+        this.setName(name);
+        this.setDescription(description);
+        this.setPrice(price);
+        this.setImagePath(imagePath);
+    }
+
+    public Product(long id, String name, String description, double price, String imagePath, long counter) {
         this.setId(id);
         this.setName(name);
         this.setDescription(description);

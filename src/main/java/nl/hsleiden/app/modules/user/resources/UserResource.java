@@ -15,11 +15,11 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/user")
+@Produces({MediaType.APPLICATION_JSON})
 public class UserResource {
 
     @POST
     @Path("/login")
-    @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public User postLoginUser(
             @FormParam("email") String email,
@@ -30,7 +30,6 @@ public class UserResource {
 
     @POST
     @Path("/register")
-    @Produces({MediaType.APPLICATION_JSON})
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public User postCreateUser(
             @Valid @BeanParam UserCreateParams userCreateParams,

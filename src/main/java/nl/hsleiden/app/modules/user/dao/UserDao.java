@@ -31,14 +31,8 @@ public interface UserDao extends MainDao {
 
     @SqlUpdate("INSERT INTO user_role (user_id, role) values (:user_id, :role)")
     @GetGeneratedKeys
-    long addRoleToUser(
-            @Bind("user_id") long userId,
-            @Bind("role") UserRoleType role
-    );
+    long addRoleToUser(@Bind("user_id") long userId, @Bind("role") UserRoleType role);
 
     @SqlUpdate("DELETE FROM user_role WHERE user_id = :user_id and role = :role")
-    void deleteRoleFromUser(
-            @Bind("user_id") long userId,
-            @Bind("role") UserRoleType role
-    );
+    void deleteRoleFromUser(@Bind("user_id") long userId, @Bind("role") UserRoleType role);
 }

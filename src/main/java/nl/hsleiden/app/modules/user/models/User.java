@@ -49,7 +49,6 @@ public class User {
         return this.getEmail() != null;
     }
 
-
     public long getId() {
         return id;
     }

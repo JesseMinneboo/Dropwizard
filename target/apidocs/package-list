@@ -8,8 +8,10 @@ nl.hsleiden.app.interfaces.enums
 nl.hsleiden.app.modules.game
 nl.hsleiden.app.modules.game.dao
 nl.hsleiden.app.modules.game.dao.mappers
+nl.hsleiden.app.modules.game.dao.seeders
 nl.hsleiden.app.modules.game.models
 nl.hsleiden.app.modules.game.resources
+nl.hsleiden.app.modules.game.resources.params
 nl.hsleiden.app.modules.game.services
 nl.hsleiden.app.modules.user
 nl.hsleiden.app.modules.user.dao

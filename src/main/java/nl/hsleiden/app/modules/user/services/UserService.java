@@ -5,11 +5,13 @@ import nl.hsleiden.app.interfaces.enums.UserRoleType;
 import nl.hsleiden.app.modules.user.UserModule;
 import nl.hsleiden.app.modules.user.dao.UserDao;
 import nl.hsleiden.app.modules.user.models.User;
+import nl.hsleiden.app.modules.user.models.UserRole;
 import nl.hsleiden.app.modules.user.resources.PasswordDecryptService;
 import nl.hsleiden.app.services.CoreService;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.List;
 
 
 public class UserService extends CoreService {
@@ -24,7 +26,9 @@ public class UserService extends CoreService {
             }
 
             if(passwordIsCorrect(password, authUser.getPassword())){
+                List<UserRole> authUserRoles = getDao().findUserRolesByUserId(authUser.getId());
                 authUser.setJwt(MainApplication.tokenProvider.generateToken(authUser.getId()));
+                authUser.setRoles(authUserRoles);
                 return authUser;
             }
 

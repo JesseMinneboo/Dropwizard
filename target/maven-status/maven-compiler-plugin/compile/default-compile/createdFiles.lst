@@ -8,6 +8,7 @@ nl\hsleiden\app\modules\user\resources\PasswordEncryptService.class
 nl\hsleiden\app\MainApplication$1.class
 nl\hsleiden\app\MainDao.class
 nl\hsleiden\app\modules\game\resources\GameResource.class
+nl\hsleiden\app\modules\game\dao\seeders\GameTableSeeder.class
 nl\hsleiden\app\modules\user\resources\PasswordDecryptService.class
 nl\hsleiden\app\modules\user\resources\UserResource.class
 nl\hsleiden\app\MainConfiguration.class
@@ -26,6 +27,7 @@ nl\hsleiden\app\filters\services\ExceptionService.class
 nl\hsleiden\app\modules\game\dao\GameDao.class
 nl\hsleiden\app\modules\user\UserModule.class
 nl\hsleiden\app\services\CoreService$1.class
+nl\hsleiden\app\modules\game\resources\params\GameCreateParam.class
 nl\hsleiden\app\interfaces\SeederMethods.class
 nl\hsleiden\app\modules\game\dao\mappers\GameMapper.class
 nl\hsleiden\app\modules\game\models\Game.class

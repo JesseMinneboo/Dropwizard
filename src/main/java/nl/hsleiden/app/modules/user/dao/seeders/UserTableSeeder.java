@@ -21,8 +21,6 @@ public class UserTableSeeder extends CoreService implements SeederMethods {
         }
     }
 
-
-
     @Override
     public boolean isAlreadySeeded() {
         try {

@@ -55,7 +55,7 @@ public class AuthFilter implements ContainerRequestFilter {
         }
 
         // Save user in current session
-        long id = MainApplication.tokenProvider.getDecodedJWT(token).getClaim("user_id").asLong();
+        long id = MainApplication.tokenProvider.getDecodedJWT(token).getClaim("id").asLong();
         UserService.setAuthUser(
                 UserService.getUserById(id)
         );

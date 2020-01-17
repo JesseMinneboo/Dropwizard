@@ -1,6 +1,7 @@
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\providers\TokenProvider.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\user\dao\seeders\UserTableSeeder.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\user\resources\params\UserCreateParams.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\game\dao\seeders\GameTableSeeder.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\user\services\UserService.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\game\models\Game.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\services\CoreService.java
@@ -31,4 +32,5 @@ C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\filters\bind
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\filters\services\ExceptionService.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\game\services\GameService.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\game\dao\GameDao.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\game\resources\params\GameCreateParam.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\user\dao\mappers\UserMapper.java
