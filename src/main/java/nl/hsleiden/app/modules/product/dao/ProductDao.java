@@ -35,8 +35,8 @@ public interface ProductDao extends MainDao {
     @SqlUpdate("DELETE FROM product WHERE id = :id")
     void deleteGameByIdFromDatabase(@Bind("id") long id);
 
-    @SqlUpdate("UPDATE product SET name = :name, description = :description, price = :price, image_path = :imagePath WHERE id = :id")
-    void editGameByIdFromDatabase(@Bind("id") long id, @BindBean Product product);
+    @SqlUpdate("UPDATE product SET name = :name, description = :description, price = :price, image_path = :imagePath WHERE id = :game_id")
+    void editGameByIdFromDatabase(@Bind("game_id") long id, @BindBean Product product);
 
     @SqlQuery("SELECT counter FROM product WHERE id = :id")
     long getGameCounterFromGameId(@Bind("id") long gameId);

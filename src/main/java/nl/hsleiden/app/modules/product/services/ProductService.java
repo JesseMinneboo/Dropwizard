@@ -44,8 +44,7 @@ public class ProductService extends CoreService {
     }
 
     public static boolean editGameById(long gameId, Product product) {
-        Product newProduct = ProductService.getGame(gameId);
-        getDao().editGameByIdFromDatabase(newProduct.getId(), product);
+        getDao().editGameByIdFromDatabase(gameId, product);
 
         return true;
     }

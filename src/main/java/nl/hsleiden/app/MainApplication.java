@@ -10,7 +10,6 @@ import nl.hsleiden.app.checks.DatabaseHealthCheck;
 import nl.hsleiden.app.filters.AdminFilter;
 import nl.hsleiden.app.filters.AuthFilter;
 import nl.hsleiden.app.modules.product.ProductModule;
-import nl.hsleiden.app.modules.product.dao.seeders.ProductTableSeeder;
 import nl.hsleiden.app.modules.user.UserModule;
 import nl.hsleiden.app.modules.user.dao.seeders.UserTableSeeder;
 import nl.hsleiden.app.providers.TokenProvider;
@@ -79,6 +78,5 @@ public class MainApplication extends Application<MainConfiguration> {
 
         // seeding tables
         new UserTableSeeder(true);
-        new ProductTableSeeder(true);
     }
 }

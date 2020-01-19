@@ -1,6 +1,7 @@
 package nl.hsleiden.app.modules.user.services;
 
 import nl.hsleiden.app.MainApplication;
+import nl.hsleiden.app.filters.services.ExceptionService;
 import nl.hsleiden.app.interfaces.enums.UserRoleType;
 import nl.hsleiden.app.modules.user.UserModule;
 import nl.hsleiden.app.modules.user.dao.UserDao;
@@ -9,6 +10,7 @@ import nl.hsleiden.app.modules.user.models.UserRole;
 import nl.hsleiden.app.modules.user.resources.PasswordDecryptService;
 import nl.hsleiden.app.services.CoreService;
 
+import javax.ws.rs.core.Response;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.List;
@@ -22,7 +24,12 @@ public class UserService extends CoreService {
             User authUser = getDao().findUserByEmail(email);
 
             if(authUser == null) {
-                return null;
+                ExceptionService.throwIlIllegalArgumentException(
+                        UserService.class,
+                        "Create User Failed: Type of role was invalid! -> ",
+                        "Create User Failed: Given role parameter was invalid type -> ",
+                        Response.Status.UNAUTHORIZED
+                );
             }
 
             if(passwordIsCorrect(password, authUser.getPassword())){
@@ -30,6 +37,14 @@ public class UserService extends CoreService {
                 authUser.setJwt(MainApplication.tokenProvider.generateToken(authUser.getId()));
                 authUser.setRoles(authUserRoles);
                 return authUser;
+            } else {
+                ExceptionService.throwIlIllegalArgumentException(
+                        UserService.class,
+                        "Create User Failed: Type of role was invalid! -> ",
+                        "Create User Failed: Given role parameter was invalid type -> ",
+                        Response.Status.UNAUTHORIZED
+                );
+
             }
 
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
@@ -45,41 +60,9 @@ public class UserService extends CoreService {
 
     public static User createUser(User user, UserRoleType role) {
         long userId  = getDao().createUser(user);
-        long userRoleId = getDao().addRoleToUser(userId, role);
+        getDao().addRoleToUser(userId, role);
 
         return getUserById(userId);
-    }
-
-    public static User addRoleToUser(long userId, UserRoleType userRoleType) {
-        User user = getUserById(userId);
-
-        if (user.isValidUser()) {
-            boolean isSameRole = user.getRoles().stream().anyMatch(
-                    (userRole -> UserRoleType.valueOf(userRole.getRole()) == userRoleType)
-            );
-
-            if (!isSameRole) {
-                getDao().addRoleToUser(userId, userRoleType);
-            }
-        }
-
-        return user;
-    }
-
-    public static User deleteRoleFromUser(long userId, UserRoleType userRoleType) {
-        User user = getUserById(userId);
-
-        if (user.isValidUser()) {
-            boolean isSameRole = user.getRoles().stream().anyMatch(
-                    (userRole -> UserRoleType.valueOf(userRole.getRole()) == userRoleType)
-            );
-
-            if (isSameRole) {
-                getDao().deleteRoleFromUser(userId, userRoleType);
-            }
-        }
-
-        return user;
     }
 
     public static User getUserById(long id) {
