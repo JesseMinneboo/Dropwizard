@@ -61,6 +61,9 @@ public class MainApplication extends Application<MainConfiguration> {
 
         environment.jersey().register(MultiPartFeature.class);
 
+
+        environment.jersey().register(MultiPartFeature.class);
+
         // initializing all modules
         new UserModule(jdbi).registerModuleResources(environment);
         new ProductModule(jdbi).registerModuleResources(environment);

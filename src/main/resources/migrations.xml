@@ -48,7 +48,7 @@
                 baseColumnNames="user_id"
                 baseTableName="user_role"
                 constraintName="user_role_to_user"
-                referencedColumnNames="id"
+                referencedColumnNames="user_id"
                 referencedTableName="user"
         />
     </changeSet>

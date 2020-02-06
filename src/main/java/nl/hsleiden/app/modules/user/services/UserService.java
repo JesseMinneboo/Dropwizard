@@ -38,13 +38,7 @@ public class UserService extends CoreService {
                 authUser.setRoles(authUserRoles);
                 return authUser;
             } else {
-                ExceptionService.throwIlIllegalArgumentException(
-                        UserService.class,
-                        "Create User Failed: Type of role was invalid! -> ",
-                        "Create User Failed: Given role parameter was invalid type -> ",
-                        Response.Status.UNAUTHORIZED
-                );
-
+                return new User();
             }
 
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {

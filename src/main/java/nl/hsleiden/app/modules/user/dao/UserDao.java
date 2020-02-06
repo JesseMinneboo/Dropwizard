@@ -17,11 +17,11 @@ public interface UserDao extends MainDao {
     @GetGeneratedKeys
     long createUser(@BindBean User user);
 
-    @SqlQuery("SELECT * FROM user as u LEFT JOIN user_role as ur ON ur.user_id = u.id WHERE email = :email")
+    @SqlQuery("SELECT * FROM user as u LEFT JOIN user_role as ur ON ur.user_id = u.user_id WHERE email = :email")
     @Mapper(UserMapper.class)
     User findUserByEmail(@Bind("email") String email);
 
-    @SqlQuery("SELECT * FROM user as u LEFT JOIN user_role as ur ON ur.user_id = u.id WHERE user_id = :id")
+    @SqlQuery("SELECT * FROM user as u LEFT JOIN user_role as ur ON ur.user_id = u.user_id WHERE u.user_id = :id")
     @Mapper(UserMapper.class)
     User findUserById(@Bind("id") long id);
 

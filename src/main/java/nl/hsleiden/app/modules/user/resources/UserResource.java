@@ -1,6 +1,5 @@
 package nl.hsleiden.app.modules.user.resources;
 
-import nl.hsleiden.app.filters.bindings.AdminBinding;
 import nl.hsleiden.app.filters.bindings.AuthBinding;
 import nl.hsleiden.app.filters.services.ExceptionService;
 import nl.hsleiden.app.interfaces.enums.UserRoleType;
@@ -17,6 +16,16 @@ import javax.ws.rs.core.Response;
 @Path("/user")
 @Produces({MediaType.APPLICATION_JSON})
 public class UserResource {
+
+    @POST
+    @AuthBinding
+    @Path("/login/token")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public User postLoginAction(
+            @FormParam("token") String token
+    ) {
+        return UserService.getAuthUser();
+    }
 
     @POST
     @Path("/login")

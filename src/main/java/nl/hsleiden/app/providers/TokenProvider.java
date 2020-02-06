@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public class TokenProvider {
-    public static final String ISSUER = "IIPSEN2-APP";
+    public static final String ISSUER = "Dropwizard";
     private static final String KEY_ALGORITHM = "RSA";
     private static final int KEY_SIZE = 1048;
     private static final String PUBLIC_KEY = "PUBLIC_KEY";
