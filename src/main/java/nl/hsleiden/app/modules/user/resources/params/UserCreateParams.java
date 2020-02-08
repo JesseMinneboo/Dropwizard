@@ -26,7 +26,6 @@ public class UserCreateParams {
     private String password;
 
 
-
     public String getEmail() {
         return email;
     }

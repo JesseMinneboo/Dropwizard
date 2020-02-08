@@ -85,4 +85,19 @@ public class UserService extends CoreService {
     private static UserDao getDao() {
         return getDao(UserModule.MODULE_TYPE, UserDao.class);
     }
+
+    public static User updateUser(long id, User user) {
+        getDao().updateUser(id, user);
+        return getDao().findUserById(id);
+    }
+
+    public static User updateAvatar(long id, String avatarUrl) {
+        getDao().addAvatarUrl(avatarUrl, id);
+        return getDao().findUserById(id);
+    }
+
+    public static void deleteUser(long userId) {
+        getDao().deleteRolesFromUser(userId);
+        getDao().deleteUser(userId);
+    }
 }

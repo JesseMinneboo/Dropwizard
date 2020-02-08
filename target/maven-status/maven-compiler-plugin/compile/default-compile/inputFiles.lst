@@ -18,6 +18,7 @@ C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\filters\Admi
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\interfaces\enums\UserRoleType.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\product\resources\ProductResource.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\user\models\UserRole.java
+C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\product\dao\seeders\ProductTableSeeder.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\interfaces\ModuleMethods.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\product\resources\params\ProductCreateParam.java
 C:\Users\info\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\user\resources\PasswordEncryptService.java

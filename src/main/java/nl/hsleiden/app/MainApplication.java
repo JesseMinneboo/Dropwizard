@@ -10,6 +10,7 @@ import nl.hsleiden.app.checks.DatabaseHealthCheck;
 import nl.hsleiden.app.filters.AdminFilter;
 import nl.hsleiden.app.filters.AuthFilter;
 import nl.hsleiden.app.modules.product.ProductModule;
+import nl.hsleiden.app.modules.product.dao.seeders.ProductTableSeeder;
 import nl.hsleiden.app.modules.user.UserModule;
 import nl.hsleiden.app.modules.user.dao.seeders.UserTableSeeder;
 import nl.hsleiden.app.providers.TokenProvider;
@@ -42,7 +43,8 @@ public class MainApplication extends Application<MainConfiguration> {
         bootstrap.addBundle(new MultiPartBundle());
     }
 
-    public void run(MainConfiguration configuration, Environment environment) throws Exception {
+    public void run(MainConfiguration configuration, Environment environment) throws
+            Exception {
         final DBIFactory factory = new DBIFactory();
         final DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
 
@@ -81,5 +83,6 @@ public class MainApplication extends Application<MainConfiguration> {
 
         // seeding tables
         new UserTableSeeder(true);
+        new ProductTableSeeder(true);
     }
 }

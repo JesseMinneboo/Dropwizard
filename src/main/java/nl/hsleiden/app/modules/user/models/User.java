@@ -27,14 +27,17 @@ public class User {
     @JsonProperty
     private String jwt;
 
+    private String avatarUrl;
+
     public User(){}
 
-    public User(long id, String email, String name, String surname, String password){
+    public User(long id, String email, String name, String surname, String password, String avatarUrl){
         this.setId(id);
         this.setEmail(email);
         this.setName(name);
         this.setSurname(surname);
         this.setPassword(password);
+        this.setAvatarUrl(avatarUrl);
     }
 
     public User (String email, String name, String surname, String password) {
@@ -47,6 +50,14 @@ public class User {
     @JsonIgnore
     public boolean isValidUser() {
         return this.getEmail() != null;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public long getId() {

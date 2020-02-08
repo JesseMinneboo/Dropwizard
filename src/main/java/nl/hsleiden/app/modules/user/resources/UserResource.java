@@ -45,11 +45,6 @@ public class UserResource {
             @FormParam("role") String roleType
     ) {
         if(LookupUtil.lookup(UserRoleType.class, roleType)) {
-            System.out.println(userCreateParams.getEmail());
-            System.out.println(userCreateParams.getName());
-            System.out.println(userCreateParams.getSurname());
-            System.out.println(userCreateParams.getPassword());
-
 
             return UserService.createUser(
                     new User(
@@ -70,5 +65,45 @@ public class UserResource {
         }
 
         return new User();
+    }
+
+    @POST
+    @AuthBinding
+    @Path("/update/{id}")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public User postUpdateUser(
+            @Valid @BeanParam UserCreateParams userCreateParams,
+            @PathParam("id") long id
+    ) {
+
+        return UserService.updateUser(
+                id,
+                new User(
+                        userCreateParams.getEmail(),
+                        userCreateParams.getName(),
+                        userCreateParams.getSurname(),
+                        userCreateParams.getPassword()
+                )
+        );
+    }
+
+    @POST
+    @AuthBinding
+    @Path("/update/avatar")
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public User postUpdateAvatar(
+            @FormParam("user_id") long userId,
+            @FormParam("avatar_url") String avatarUrl
+    ){
+        return UserService.updateAvatar(userId, avatarUrl);
+    }
+
+    @DELETE
+    @AuthBinding
+    @Path("/delete/{user_id}")
+    public void deleteUser(
+            @PathParam("user_id") long userId
+    ) {
+        UserService.deleteUser(userId);
     }
 }
