@@ -9,19 +9,51 @@
     <changeSet id="1" author="jesse">
         <createTable tableName="user">
             <column name="user_id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
-            </column>
-            <column name="username" type="varchar(250)"/>
-            <column name="password" type="varchar(250)"/>
+                <constraints primaryKey="true" nullable="false"/></column>
+            <column name="email" type="varchar(256)"/>
+            <column name="name" type="varchar(256)"/>
+            <column name="surname" type="varchar(256)"/>
+            <column name="password" type="varchar(256)"/>
+            <column name="avatar_url" type="varchar(512)"/>
         </createTable>
 
-        <createTable tableName="changelog">
-            <column name="id" type="bigint" autoIncrement="true">
+        <createTable tableName="user_role">
+            <column name="user_role_id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="error" type="varchar(250)"/>
-            <column name="time" type="varchar(250)"/>
+            <column name="role" type="varchar(250)"/>
+
+            <column name="user_id" type="bigint"/>
         </createTable>
+
+        <createTable tableName="product">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/></column>
+            <column name="name" type="varchar(64)"/>
+            <column name="description" type="varchar(1024)"/>
+            <column name="price" type="numeric(5,2)"/>
+            <column name="image_path" type="varchar(512)"/>
+            <column name="counter" type="bigint"/>
+        </createTable>
+
+        <createTable tableName="order">
+            <column name="order_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="order_user_id" type="bigint"/> <!--FOREIGN KEY-->
+            <column name="order_date" type="date"/>
+            <column name="order_price" type="numeric(5,2)"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseColumnNames="user_id"
+                baseTableName="user_role"
+                constraintName="user_role_to_user"
+                referencedColumnNames="user_id"
+                referencedTableName="user"
+        />
     </changeSet>
+
+
 
 </databaseChangeLog>
