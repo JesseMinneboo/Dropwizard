@@ -8,6 +8,7 @@ nl.hsleiden.app.interfaces.enums
 nl.hsleiden.app.modules.product
 nl.hsleiden.app.modules.product.dao
 nl.hsleiden.app.modules.product.dao.mappers
+nl.hsleiden.app.modules.product.dao.seeders
 nl.hsleiden.app.modules.product.models
 nl.hsleiden.app.modules.product.resources
 nl.hsleiden.app.modules.product.resources.params

@@ -19,6 +19,7 @@ nl\hsleiden\app\modules\user\dao\mappers\UserRoleMapper.class
 nl\hsleiden\app\filters\AuthFilter.class
 nl\hsleiden\app\modules\user\dao\UserDao.class
 nl\hsleiden\app\services\CoreService.class
+nl\hsleiden\app\modules\product\dao\seeders\ProductTableSeeder.class
 nl\hsleiden\app\modules\user\models\User.class
 nl\hsleiden\app\interfaces\ModuleMethods.class
 nl\hsleiden\app\filters\AdminFilter.class

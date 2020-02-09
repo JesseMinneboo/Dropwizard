@@ -28,6 +28,7 @@ C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\mo
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\user\resources\UserResource.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\user\models\UserRole.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\product\dao\mappers\ProductMapper.java
+C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\product\dao\seeders\ProductTableSeeder.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\providers\TokenProvider.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\modules\product\services\ProductService.java
 C:\Users\Jesse Minneboo\IdeaProjects\Dropwizard\src\main\java\nl\hsleiden\app\interfaces\ModuleMethods.java
