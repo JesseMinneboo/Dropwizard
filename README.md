@@ -100,7 +100,7 @@ Project Link: [https://github.com/JesseMinneboo/Dropwizard](https://github.com/J
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [Img Shields](https://shields.io)
-* [Dropwizard documentation] (https://www.dropwizard.io/en/stable/getting-started.html)
+* [Dropwizard documentation](https://www.dropwizard.io/en/stable/getting-started.html)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
