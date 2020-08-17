@@ -1,9 +1,3 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -103,18 +97,3 @@ Project Link: [https://github.com/JesseMinneboo/Dropwizard](https://github.com/J
 * [Dropwizard documentation](https://www.dropwizard.io/en/stable/getting-started.html)
 
 
-<!-- MARKDOWN LINKS & IMAGES -->
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/JesseMinneboo
-[contributors-shield]: https://img.shields.io/github/contributors/JesseMinneboo/Dropwizard.svg?style=flat-square
-[contributors-url]: https://github.com/JesseMinneboo/Dropwizard/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/JesseMinneboo/Dropwizard.svg?style=flat-square
-[forks-url]: https://github.com/JesseMinneboo/Dropwizard/network/members
-[stars-shield]: https://img.shields.io/github/stars/JesseMinneboo/Dropwizard.svg?style=flat-square
-[stars-url]: https://github.com/JesseMinneboo/Dropwizard/stargazers
-[issues-shield]: https://img.shields.io/github/issues/JesseMinneboo/Dropwizard.svg?style=flat-square
-[issues-url]: https://github.com/JesseMinneboo/Dropwizard/issues
-[license-shield]: https://img.shields.io/github/license/JesseMinneboo/Dropwizard.svg?style=flat-square
-[license-url]: https://github.com/JesseMinneboo/Dropwizard/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/JesseMinneboo
